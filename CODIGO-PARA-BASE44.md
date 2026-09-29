@@ -211,7 +211,7 @@ function ChapterWords({ chapter, index, progress }) {
   const opacity = useTransform(progress, next ? [enter, enter + .04, next - .025, next + .015] : [enter, enter + .04], next ? [0, 1, 1, 0] : [0, 1]);
   const y = useTransform(progress, [enter, enter + .04], [22, 0]);
   return <motion.div className={`ng-cinema-words ${index ? 'ng-cinema-chapter-words' : ''}`} style={{ opacity, y }} aria-hidden="true">
-    <span className="ng-cinema-word-one">{chapter.left.replace(/\.+$/, '')}</span>
+    <span className="ng-cinema-word-one">{chapter.id === 'agenda' ? <><span className="ng-cinema-desktop-label">Cada compromisso</span><span className="ng-cinema-mobile-label">Cada evento</span></> : chapter.left.replace(/\.+$/, '')}</span>
     <span className={`ng-cinema-word-two ${chapter.compactRight ? 'ng-cinema-word-compact' : ''}`}>{chapter.right.replace(/\.+$/, '')}{chapter.number && <small className="ng-cinema-chapter-number">{chapter.number}</small>}</span>
     {chapter.caption && <span className="ng-cinema-word-three">{chapter.caption}</span>}
   </motion.div>;
@@ -605,6 +605,7 @@ export function NotesScreen() {
 .ng-cinema-word-one { right: calc(50% + 235px); top: 39%; }
 .ng-cinema-word-two { left: calc(50% + 210px); top: 57%; color: #ebb18a; }
 .ng-cinema-words .ng-cinema-word-three { bottom: 10%; left: 0; right: 0; text-align: center; font-size: 33px; color: #bfa58f; }
+.ng-cinema-mobile-label { display: none; }
 .ng-cinema-bottom { position: absolute; left: 48px; right: 48px; bottom: 28px; display: flex; align-items: center; justify-content: center; z-index: 6; color: #b89d88; font-size: 7px; letter-spacing: .16em; }
 .ng-cinema-bottom a { display: flex; align-items: center; gap: 15px; }
 .ng-cinema-static .ng-cinema-scene { height: 1250px; }
@@ -738,6 +739,8 @@ export function NotesScreen() {
   .ng-finale-word-one,.ng-finale-word-two { font-size: 26px; } .ng-finale-token-one { left: 10%; } .ng-finale-token-two { right: 7%; } .ng-finale-token-three { right: 17%; }
 }
 @media (max-width: 767px) {
+  .ng-cinema-desktop-label { display: none; }
+  .ng-cinema-mobile-label { display: inline; }
   .nortgo-landing { --ng-title-size: clamp(39px,10.3vw,61px); }
   .ng-header { padding-top: 14px; } .ng-header > .ng-container { width: calc(100% - 24px); padding: 10px 12px; border-radius: 13px; gap: 10px; } .ng-header > .ng-container > div:last-child { gap: 13px; } .ng-header .ng-brand { font-size: 20px; } .ng-header .ng-brand img { width: 29px; height: 29px; }
   .ng-cinema-static .ng-cinema-scene { height: auto; min-height: 1040px; }
