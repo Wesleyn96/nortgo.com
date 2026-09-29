@@ -737,7 +737,7 @@ export function NotesScreen() {
     background-color: #080908;
     background-image: linear-gradient(180deg, #08090810 18%, #08090830 64%, #080908 100%), url('/landing/img/amber-horizon-mobile.png');
     background-repeat: no-repeat;
-    background-position: center, center center;
+    background-position: center, center 68%;
     background-size: cover, auto 100%;
   }
   .ng-brand > span { display: none; }
@@ -747,6 +747,7 @@ export function NotesScreen() {
   .ng-header { padding-top: 14px; } .ng-header > .ng-container { width: calc(100% - 24px); padding: 10px 12px; border-radius: 13px; gap: 10px; } .ng-header > .ng-container > div:last-child { gap: 13px; } .ng-header .ng-brand { font-size: 20px; } .ng-header .ng-brand img { width: 29px; height: 29px; }
   .ng-cinema-static .ng-cinema-scene { height: auto; min-height: 620px; }
   .ng-cinema-static .ng-cinema-device-position, .ng-cinema-static .ng-cinema-satellites { display: none; }
+  .ng-cinema-static .ng-cinema-halo { display: none; }
   .ng-cinema-copy { top: 142px; left: 17px; right: 17px; } .ng-cinema-copy h1 { font-size: var(--ng-title-size); line-height: 1.04; margin-top: 23px; } .ng-cinema-copy .ng-eyebrow { font-size: 7px; letter-spacing: .18em; } .ng-cinema-copy p { font-size: 13px; margin-top: 21px; } .ng-cinema-actions { gap: 9px; margin-top: 25px; } .ng-cinema-actions .ng-button { padding: 13px 14px; font-size: 11px; }
   .ng-cinema-static .ng-cinema-device-position { top: 490px; left: calc(50% - 123px); width: 246px; } .ng-cinema-device .ng-phone { width: 246px; border-radius: 35px; padding: 8px; } .ng-cinema-device .ng-phone-screen { border-radius: 27px; } .ng-cinema-device::after { border-radius: 35px; }
   .ng-cinema-halo { width: 700px; height: 700px; left: calc(50% - 350px); top: 330px; filter: blur(8px); } .ng-cinema-halo::after { width: 370px; height: 370px; top: 100px; left: 165px; }
