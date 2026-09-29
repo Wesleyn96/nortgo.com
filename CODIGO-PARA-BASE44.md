@@ -153,7 +153,6 @@ export default function LandingHeader() {
       <Brand />
       <div className="flex items-center gap-5">
         <Link to="/login" className="hidden md:inline text-sm">Entrar</Link>
-        <Link to="/register" className="ng-nav-cta">Começar</Link>
         <button className="ng-menu-toggle md:hidden" onClick={() => setOpen(!open)} aria-label={open ? 'Fechar menu' : 'Abrir menu'} aria-expanded={open} aria-controls="ng-mobile-menu">{open ? <X size={22} /> : <Menu size={22} />}</button>
       </div>
     </div>
