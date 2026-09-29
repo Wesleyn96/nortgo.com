@@ -69,6 +69,7 @@ export default function LandingHero() {
       <motion.div className="ng-cinema-halo" style={cinematic ? { scale: haloScale } : {}} aria-hidden="true" />
       <motion.div className="ng-cinema-copy" style={cinematic ? { opacity: titleOpacity, y: titleY, pointerEvents: pastIntro ? 'none' : 'auto' } : {}}>
         <motion.div initial={reduced ? false : {opacity:0,y:18}} animate={{opacity:1,y:0}} transition={{duration:reduced?0:.9,ease:landingEase}}>
+          <div className="ng-mobile-hero-brand" aria-hidden="true"><img src="/landing/img/logo-nortgo.png" alt="" width="82" height="82" /><span><span className="ng-brand-nort">Nort</span><span className="ng-brand-go">Go</span></span></div>
           <h1 id="hero-heading">Foco no que importa.<br /><span>Vida organizada.</span></h1>
           <p>Agenda, tarefas, contas e hábitos.<br className="md:hidden" /> Sua vida em um só lugar.</p>
           <div className="ng-cinema-actions" inert={cinematic && pastIntro ? '' : undefined} aria-hidden={cinematic && pastIntro ? true : undefined}><Action /></div>

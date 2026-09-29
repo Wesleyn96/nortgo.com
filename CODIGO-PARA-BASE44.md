@@ -241,6 +241,7 @@ export default function LandingHero() {
       <motion.div className="ng-cinema-halo" style={cinematic ? { scale: haloScale } : {}} aria-hidden="true" />
       <motion.div className="ng-cinema-copy" style={cinematic ? { opacity: titleOpacity, y: titleY, pointerEvents: pastIntro ? 'none' : 'auto' } : {}}>
         <motion.div initial={reduced ? false : {opacity:0,y:18}} animate={{opacity:1,y:0}} transition={{duration:reduced?0:.9,ease:landingEase}}>
+          <div className="ng-mobile-hero-brand" aria-hidden="true"><img src="/landing/img/logo-nortgo.png" alt="" width="82" height="82" /><span><span className="ng-brand-nort">Nort</span><span className="ng-brand-go">Go</span></span></div>
           <h1 id="hero-heading">Foco no que importa.<br /><span>Vida organizada.</span></h1>
           <p>Agenda, tarefas, contas e hábitos.<br className="md:hidden" /> Sua vida em um só lugar.</p>
           <div className="ng-cinema-actions" inert={cinematic && pastIntro ? '' : undefined} aria-hidden={cinematic && pastIntro ? true : undefined}><Action /></div>
@@ -567,6 +568,7 @@ export function NotesScreen() {
 .ng-cinema-copy .ng-eyebrow { justify-content: center; font-size: 9px; letter-spacing: .22em; }
 .ng-cinema-copy h1 { margin: 23px auto 0; font-size: var(--ng-title-size); line-height: .99; letter-spacing: -.065em; font-weight: 500; }
 .ng-cinema-copy h1 span { color: #edb189; }
+.ng-mobile-hero-brand { display: none; }
 .ng-cinema-copy p { color: #b6aaa0; font-size: 14px; margin-top: 20px; }
 .ng-cinema-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 25px; }
 .ng-cinema-device-position { position: absolute; top: max(515px,52svh); left: calc(50% - 175px); width: 350px; perspective: 1300px; z-index: 3; }
@@ -738,6 +740,10 @@ export function NotesScreen() {
     background-position: center, center center;
     background-size: cover, auto 100%;
   }
+  .ng-brand > span { display: none; }
+  .ng-mobile-hero-brand { display: flex; flex-direction: column; align-items: center; gap: 7px; margin-bottom: 20px; }
+  .ng-mobile-hero-brand img { width: 70px; height: 70px; object-fit: contain; }
+  .ng-mobile-hero-brand > span { font-size: 25px; line-height: 1; font-weight: 500; letter-spacing: -.05em; }
   .ng-header { padding-top: 14px; } .ng-header > .ng-container { width: calc(100% - 24px); padding: 10px 12px; border-radius: 13px; gap: 10px; } .ng-header > .ng-container > div:last-child { gap: 13px; } .ng-header .ng-brand { font-size: 20px; } .ng-header .ng-brand img { width: 29px; height: 29px; }
   .ng-cinema-static .ng-cinema-scene { height: auto; min-height: 620px; }
   .ng-cinema-static .ng-cinema-device-position, .ng-cinema-static .ng-cinema-satellites { display: none; }
