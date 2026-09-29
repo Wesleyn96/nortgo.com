@@ -1,0 +1,290 @@
+@font-face { font-family: 'NortGo Landing Inter'; src: url('/landing/fonts/inter-300.ttf') format('truetype'); font-weight: 300; font-display: swap; }
+@font-face { font-family: 'NortGo Landing Inter'; src: url('/landing/fonts/inter-400.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'NortGo Landing Inter'; src: url('/landing/fonts/inter-500.woff2') format('woff2'); font-weight: 500; font-display: swap; }
+@font-face { font-family: 'NortGo Landing Inter'; src: url('/landing/fonts/inter-600.woff2') format('woff2'); font-weight: 600; font-display: swap; }
+@font-face { font-family: 'NortGo Landing Inter'; src: url('/landing/fonts/inter-700.woff2') format('woff2'); font-weight: 700; font-display: swap; }
+@font-face { font-family: 'NortGo Landing Inter'; src: url('/landing/fonts/inter-800.woff2') format('woff2'); font-weight: 800; font-display: swap; }
+@font-face { font-family: 'NortGo Landing Barlow'; src: url('/landing/fonts/barlow-condensed-600.woff2') format('woff2'); font-weight: 600; font-display: swap; }
+@font-face { font-family: 'NortGo Landing Barlow'; src: url('/landing/fonts/barlow-condensed-700.woff2') format('woff2'); font-weight: 700; font-display: swap; }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.nortgo-landing { --ng-copper: #c6632a; --ng-soft: #edaa7e; --ng-paper: #f5f2ed; --ng-dark: #0b0b0d; font-family: 'NortGo Landing Inter', Arial, sans-serif; background: #0b0b0d; color: #f5f2ed; line-height: 1.5; font-weight: 400; overflow: clip; -webkit-font-smoothing: antialiased; color-scheme: dark; }
+.nortgo-landing *, .nortgo-landing *::before, .nortgo-landing *::after { box-sizing: border-box; }
+.nortgo-landing :where(h1,h2,h3,h4,p,figure) { margin: 0; }
+.nortgo-landing :where(a) { color: inherit; text-decoration: none; }
+.nortgo-landing :where(button) { font: inherit; cursor: pointer; color: inherit; background: transparent; border: 0; }
+.nortgo-landing img { display: block; max-width: 100%; }
+.nortgo-landing :where(a,button):focus-visible { outline: 2px solid #edaa7e; outline-offset: 6px; border-radius: 999px; }
+.nortgo-landing :where(section[id]) { scroll-margin-top: 92px; }
+.nortgo-landing ::selection { background: #c6632a; color: white; }
+.ng-container { width: min(1248px, calc(100% - 96px)); margin-inline: auto; }
+.ng-skip { position: fixed; z-index: 100; top: 10px; left: 10px; padding: 12px 18px; background: #f5f2ed; color: #111 !important; transform: translateY(-160%); }
+.ng-skip:focus { transform: translateY(0); }
+.ng-header { position: absolute; top: 0; left: 0; z-index: 30; width: 100%; padding: 23px 0; border-bottom: 0; }
+.ng-brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: -1px; font-size: 24px; }
+.ng-brand img { width: 39px; height: 39px; object-fit: contain; }
+.ng-brand-nort { color: #ff881d; }
+.ng-brand-go { color: #fff; }
+.ng-header nav a, .ng-footer nav a { transition: color .2s; }
+.ng-header nav a:hover, .ng-footer nav a:hover { color: #edaa7e; }
+.ng-nav-cta { border: 1px solid #6b4c3a; background: #c6632a12; padding: 10px 17px; border-radius: 999px; display: flex; gap: 15px; align-items: center; font-size: 13px; }
+.ng-nav-cta:hover { background: #c6632a30; }
+.ng-mobile-menu { position: absolute; top: 78px; inset-inline: 16px; padding: 15px 20px; border: 1px solid #383431; border-radius: 12px; background: #141312; box-shadow: 0 15px 50px #0008; }
+.ng-mobile-menu a { display: block; padding: 13px 0; }
+.ng-menu-toggle { padding: 6px; }
+.ng-button { display: inline-flex; align-items: center; justify-content: center; gap: 25px; padding: 15px 23px; font-size: 14px; font-weight: 500; border-radius: 999px; transition: background .22s, transform .22s; min-height: 50px; }
+.ng-button:hover { transform: translateY(-2px); }
+.ng-button-primary { background: #af5120; color: #fff !important; border: 1px solid #ce763f; box-shadow: 0 6px 30px #c6632a18; }
+.ng-button-primary:hover { background: #ad5120; }
+.ng-button-secondary { background: #ffffff04; border: 1px solid #ffffff20; }
+.ng-button-secondary:hover { background: #ffffff0e; }
+.ng-eyebrow { display: flex; align-items: center; gap: 10px; color: #c6a38b; font-size: 10px; font-weight: 600; letter-spacing: .18em; line-height: 1.6; text-transform: uppercase; }
+.ng-eyebrow > span { width: 5px; height: 5px; border-radius: 50%; background: #dc8a53; }
+.ng-eyebrow-dark { color: #8d4925; }
+.ng-hero { position: relative; padding-top: 148px; min-height: 1080px; background: #0b0b0d; }
+.ng-hero-glow { position: absolute; width: 1150px; height: 900px; top: 225px; left: 50%; transform: translateX(-50%); background: radial-gradient(ellipse, #ad522322 0%, #8b391217 33%, transparent 65%); pointer-events: none; }
+.ng-hero .ng-eyebrow { justify-content: center; margin-bottom: 21px; }
+.ng-hero-title { font-size: clamp(50px, 6.7vw, 96px); font-weight: 500; line-height: 1.025; letter-spacing: -.065em; }
+.ng-hero-title > span { color: #edaa7e; }
+.ng-hero-copy { margin: 23px auto 0 !important; color: #aaa5a0; font-size: 16px; line-height: 1.7; letter-spacing: -.015em; }
+.ng-hero-stage { position: relative; height: 601px; max-width: 1000px; margin: 61px auto 0; perspective: 1600px; }
+.ng-phone { position: relative; width: 286px; border: 1px solid #6c6966; padding: 8px; border-radius: 39px; background: linear-gradient(125deg,#676563,#20201f 14%,#090909 55%,#504c47); box-shadow: 0 30px 60px -20px #000a, inset 0 0 0 2px #131313; isolation: isolate; }
+.ng-phone::after { content: ''; position: absolute; right: -3px; top: 125px; height: 45px; width: 2px; border-radius: 2px; background: #74706b; }
+.ng-phone-screen { background: #000; overflow: hidden; border-radius: 31px; aspect-ratio: 379 / 752; }
+.ng-phone-screen > picture,.ng-phone-screen > picture > img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.ng-phone-speaker { position: absolute; height: 3px; width: 38px; top: 13px; left: calc(50% - 19px); border-radius: 8px; background: #2b2b2b; }
+.ng-hero-center { position: absolute; left: calc(50% - 143px); top: 0; z-index: 3; }
+.ng-hero-side { position: absolute; top: 75px; opacity: .64; z-index: 1; }
+.ng-hero-side .ng-phone { width: 240px; border-radius: 33px; }
+.ng-hero-side .ng-phone-screen { border-radius: 26px; }
+.ng-hero-left { left: calc(50% - 407px); }
+.ng-hero-right { right: calc(50% - 407px); }
+.ng-stage-line { position: absolute; top: 250px; left: -200px; right: -200px; border-top: 1px solid #edaa7e10; }
+.ng-hero-note { position: absolute; z-index: 4; display: flex; align-items: center; gap: 12px; padding: 16px 18px; border-radius: 12px; background: #22201ef0; border: 1px solid #605142; box-shadow: 0 20px 30px #0004; text-align: left; backdrop-filter: blur(16px); }
+.ng-hero-note small { display: block; font-size: 8px; letter-spacing: .12em; color: #a89c91; margin-bottom: 4px; }
+.ng-hero-note strong { font-size: 11px; font-weight: 500; }
+.ng-hero-note-left { top: 270px; left: 70px; }
+.ng-hero-note-right { top: 400px; right: 42px; }
+.ng-note-icon { display: grid; place-items: center; width: 35px; height: 35px; border-radius: 9px; background: #c6632a1a; color: #edaa7e; }
+.ng-hero-bottom { display: flex; align-items: center; justify-content: space-between; padding: 15px 0 29px; border-bottom: 1px solid #ffffff14; font-size: 9px; letter-spacing: .18em; color: #8b8681; }
+.ng-footer { padding: 55px 0 25px; background: #0b0b0d; }
+.ng-footer-bottom { border-top: 1px solid #ffffff15; padding-top: 24px; display: flex; justify-content: space-between; gap: 24px; color: #98938e; font-size: 11px; }
+.ng-section-number { font-family: 'NortGo Landing Barlow', sans-serif; font-size: 14px; letter-spacing: .1em; color: #c6632a; }
+.ng-heading { font-size: clamp(40px,4.4vw,64px); line-height: 1.06; font-weight: 500; letter-spacing: -.06em; }
+.ng-body { font-size: 15px; line-height: 1.85; color: #aaa5a0; letter-spacing: -.015em; }
+.ng-dim { color: #7e7974; }
+.ng-light { background: #f5f2ed; color: #191817; color-scheme: light; }
+.ng-light .ng-body { color: #726b64; }
+.ng-accent-text { color: #a85224; }
+.ng-feature { padding: 132px 0; }
+.ng-feature-next { display: inline-flex; align-items: center; gap: 20px; font-size: 11px; color: #b3a397 !important; margin-top: 40px; padding: 10px 0; border-bottom: 1px solid #655346; }
+.ng-light .ng-feature-next { color: #795b47 !important; border-color: #cdbbab; }
+.ng-problem { padding: 132px 0 148px; }
+.ng-fragments { position: relative; height: 460px; }
+.ng-fragments::before { content: ''; position: absolute; width: 350px; height: 350px; border: 1px solid #ffffff09; border-radius: 50%; top: 42px; left: calc(50% - 175px); box-shadow: 0 0 0 48px #ffffff02,0 0 0 96px #ffffff01; }
+.ng-fragments-center { position: absolute; top: 185px; width: 100%; text-align: center; font-size: 24px; line-height: 1.2; letter-spacing: -.04em; color: #7f7770; }
+.ng-fragment { position: absolute; display: flex; align-items: center; gap: 14px; padding: 19px 22px; background: linear-gradient(120deg,#242220,#171615); border: 1px solid #413b35; border-radius: 10px; color: #c2bab2; font-size: 11px; box-shadow: 0 15px 30px #0003; }
+.ng-fragment svg { color: #ce895e; }
+.ng-fragment-one { top: 30px; left: 25px; rotate: -8deg; }
+.ng-fragment-two { top: 114px; right: 0; rotate: 7deg; }
+.ng-fragment-three { top: 280px; left: -10px; rotate: -5deg; }
+.ng-fragment-four { bottom: 20px; right: 0; rotate: 6deg; }
+.ng-fragment-five { top: 195px; left: 0; rotate: -13deg; opacity: .4; transform: translateX(-5%); }
+.ng-overview { padding: 120px 0 60px; }
+.ng-overview-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 50px; margin-bottom: 68px; }
+.ng-module-directory { display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid #d9d0c7; }
+.ng-module-link { display: flex; gap: 20px; align-items: center; min-height: 132px; border-bottom: 1px solid #d9d0c7; padding: 26px 25px 26px 0; transition: background .25s; }
+.ng-module-link:hover { background: #eadfd355; }
+.ng-module-index { font-size: 9px; color: #a99a8e; }
+.ng-module-link > svg { color: #a85224; flex: 0 0 auto; }
+.ng-module-link strong { display: block; font-size: 21px; font-weight: 500; letter-spacing: -.04em; }
+.ng-module-link small { display: block; font-size: 10px; color: #807569; margin-top: 3px; }
+.ng-module-link .ng-module-arrow { margin-left: auto; color: #897765; }
+.ng-overview-foot { text-align: center; font-size: 11px; color: #8a7e72; padding-top: 45px; }
+.ng-overview-foot strong { color: #544538; font-weight: 500; }
+.ng-day { height: 185vh; min-height: 1200px; background: radial-gradient(ellipse at 80% 45%,#40231444,transparent 55%),#0b0b0d; position: relative; }
+.ng-day-sticky { position: sticky; top: 0; min-height: 100vh; display: flex; align-items: center; padding: 70px 0; }
+.ng-day-static { height: auto; min-height: 0; }
+.ng-day-static .ng-day-sticky { position: relative; min-height: 870px; }
+.ng-day-steps { margin-top: 37px; max-width: 390px; }
+.ng-day-step { display: flex; gap: 16px; padding: 17px 0 17px 18px; border-left: 1px solid #46403b; opacity: .42; transition: opacity .35s,border-color .35s; }
+.ng-day-step-active { opacity: 1; border-color: #c6632a; }
+.ng-day-step > span { color: #de9568; padding-top: 4px; }
+.ng-day-step h3 { font-size: 13px; font-weight: 500; }
+.ng-day-step p { font-size: 11px; line-height: 1.7; color: #999089; margin-top: 4px; }
+.ng-day-visual { position: relative; display: flex; align-items: center; flex-direction: column; padding-top: 22px; }
+.ng-day-glow { position: absolute; inset: 0 -25%; background: radial-gradient(ellipse,#c6632a20,transparent 67%); }
+.ng-visual-caption { margin-top: 35px; color: #968373; letter-spacing: .15em; font-size: 8px; display: flex; align-items: center; gap: 8px; }
+.ng-caption-dot { width: 4px; height: 4px; background: #c6632a; border-radius: 50%; }
+.ng-detail-line { display: flex; gap: 12px; align-items: center; padding-top: 25px; font-size: 11px; color: #846247; }
+.ng-agenda-visual { position: relative; display: flex; justify-content: flex-end; padding: 25px 30px; }
+.ng-agenda-visual .ng-phone { rotate: 5deg; }
+.ng-date-display { position: absolute; top: 100px; left: -10px; color: #c4a789; }
+.ng-date-display small { font-size: 7px; letter-spacing: .12em; }
+.ng-date-display > span { display: block; font-family: 'NortGo Landing Barlow',sans-serif; font-size: 180px; font-weight: 600; letter-spacing: -.07em; line-height: 1; }
+.ng-date-display b { font-size: 11px; letter-spacing: .35em; font-weight: 500; }
+.ng-agenda-label { position: absolute; bottom: 86px; left: -18px; min-width: 244px; display: flex; align-items: center; gap: 20px; background: #fffdf9; border: 1px solid #e2d3c3; border-radius: 10px; padding: 22px; box-shadow: 0 20px 40px #68402320; rotate: -4deg; }
+.ng-agenda-label span { font-size: 11px; color: #9c7960; }
+.ng-agenda-label strong { font-size: 13px; font-weight: 500; }
+.ng-agenda-label svg { margin-left: auto; color: #a85224; }
+.ng-task-visual,.ng-routine-visual,.ng-health-visual,.ng-notes-visual { position: relative; display: flex; justify-content: center; padding: 20px 0; }
+.ng-tasks { background: radial-gradient(ellipse at 23% 60%,#8b452018,transparent 40%),#0b0b0d; }
+.ng-task-visual .ng-phone { rotate: -5deg; }
+.ng-done-tag { position: absolute; bottom: 92px; left: 60px; display: flex; gap: 14px; align-items: center; border: 1px solid #3b5343; border-radius: 10px; background: #1d2921; padding: 20px; box-shadow: 0 20px 50px #0008; }
+.ng-done-tag > span { border-radius: 50%; width: 32px; height: 32px; display: grid; place-items: center; background: #365d3f; color: #a1dbaa; }
+.ng-done-tag small { font-size: 7px; letter-spacing: .14em; display: block; color: #9bb29f; }
+.ng-done-tag strong { font-size: 12px; font-weight: 400; text-decoration: line-through; text-decoration-color: #aac0ad80; }
+.ng-words-list { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 20px; font-size: 12px; color: #716a63; }
+.ng-words-list span:last-child { color: #c99978; }
+.ng-routines { border-top: 1px solid #ffffff12; background: #111110; }
+.ng-routine-quote { margin-top: 30px !important; border-left: 1px solid #765035; padding-left: 20px; font-size: 20px; line-height: 1.5; letter-spacing: -.04em; color: #d1bca8; }
+.ng-rhythm { position: absolute; display: flex; align-items: flex-end; justify-content: center; gap: 13px; left: -30px; right: -30px; bottom: 58px; height: 400px; opacity: .14; }
+.ng-rhythm i { width: 29px; background: #bf713d; transform: scaleY(3); transform-origin: bottom; border-radius: 8px 8px 0 0; }
+.ng-routine-note { position: absolute; bottom: -14px; display: flex; align-items: center; gap: 10px; background: #302419; border: 1px solid #705033; border-radius: 30px; padding: 13px 20px; font-size: 9px; color: #dcb28b; white-space: nowrap; }
+.ng-finance-heading { display: flex; justify-content: space-between; align-items: flex-end; }
+.ng-finance-composition { display: grid; grid-template-columns: 1fr 1.15fr 1fr; gap: 50px; align-items: center; margin-top: 70px; }
+.ng-finance-phone { display: flex; justify-content: center; }
+.ng-finance-phone .ng-phone { box-shadow: 0 28px 65px -20px #663c2b60; }
+.ng-finance-side { padding-bottom: 70px; }
+.ng-finance-amount { border-top: 1px solid #d5c6b6; padding-top: 24px; margin-top: 50px; display: flex; gap: 15px; color: #956744; }
+.ng-finance-amount small { display: block; font-size: 8px; letter-spacing: .15em; margin-bottom: 7px; }
+.ng-finance-amount b { font-size: 15px; font-weight: 500; color: #32271f; }
+.ng-finance-amount p { font-size: 12px; margin-top: 8px; color: #7c6d60; }
+.ng-finance-side-right { align-self: end; }
+.ng-finance-terms { border-top: 1px solid #d5c6b6; margin-top: 50px; padding-top: 28px; color: #9a663e; }
+.ng-finance-terms p { margin-top: 17px; font-size: 18px; line-height: 1.7; letter-spacing: -.03em; color: #867463; }
+.ng-health { background: #101212; }
+.ng-health-soft { position: absolute; width: 570px; height: 570px; border-radius: 50%; top: 0; left: calc(50% - 285px); background: radial-gradient(ellipse,#46645926,transparent 67%); }
+.ng-health-visual .ng-phone { rotate: -3deg; }
+.ng-health-caption { position: absolute; bottom: -13px; display: flex; align-items: center; gap: 10px; color: #8fa495; font-size: 10px; }
+.ng-health-disclaimer { color: #757e78; margin-top: 28px !important; font-size: 10px; line-height: 1.7; }
+.ng-notes { background: #101010; border-top: 1px solid #ffffff12; }
+.ng-notes-visual .ng-phone { rotate: 4deg; }
+.ng-note-flow { display: flex; gap: 15px; align-items: center; margin-top: 36px; font-size: 10px; color: #b79b84; }
+.ng-note-flow span { display: flex; align-items: center; gap: 8px; }
+.ng-idea-slip { position: absolute; bottom: 37px; left: 0; background: #dcc0a1; color: #513f2c; border: 1px solid #f1d7b9; rotate: -7deg; padding: 27px 24px; box-shadow: 0 20px 40px #0007; }
+.ng-idea-slip small { font-size: 7px; letter-spacing: .15em; }
+.ng-idea-slip p { font-size: 15px; letter-spacing: -.04em; line-height: 1.55; margin-top: 12px; }
+.ng-integration { padding: 130px 0 54px; }
+.ng-connected-system { position: relative; max-width: 950px; margin: 72px auto 58px; display: flex; flex-direction: column; align-items: center; }
+.ng-connected-brand { display: flex; flex-direction: column; align-items: center; position: relative; padding: 18px 24px; background: #f5f2ed; }
+.ng-connected-brand img { width: 100px; height: 100px; }
+.ng-connected-brand span { font-size: 12px; color: #937153; margin-top: 12px; }
+.ng-connected-line { position: absolute; left: 8.33%; right: 8.33%; height: 68px; top: 156px; border: 1px solid #d1b89f; border-bottom: 0; border-radius: 10px 10px 0 0; }
+.ng-connected-line::before { content: ''; position: absolute; width: 1px; height: 68px; background: #d1b89f; top: -68px; left: 50%; }
+.ng-connected-modules { position: relative; width: 100%; display: grid; grid-template-columns: repeat(6,1fr); gap: 16px; margin-top: 65px; }
+.ng-connected-modules a { display: flex; flex-direction: column; align-items: center; gap: 15px; color: #825b3d; font-size: 11px; transition: color .2s; }
+.ng-connected-modules a:hover { color: #c6632a; }
+.ng-connected-modules svg { background: #f5f2ed; outline: 16px solid #f5f2ed; }
+.ng-integration-bottom { border-top: 1px solid #d9cfc4; padding-top: 31px; display: flex; justify-content: center; gap: 55px; color: #9e8c7c; font-size: 10px; }
+.ng-integration-bottom strong { font-weight: 500; color: #73604f; }
+.ng-cta { padding: 110px 0 0; background: radial-gradient(ellipse at 70% 80%,#ab5b2226,transparent 60%),#10100f; overflow: hidden; }
+.ng-cta-inner { display: grid; grid-template-columns: 1.25fr 1fr; gap: 55px; align-items: center; min-height: 540px; }
+.ng-cta-inner > div:first-child { padding-bottom: 75px; }
+.ng-cta-device { align-self: end; margin-bottom: -120px; display: flex; justify-content: center; rotate: 10deg; }
+.ng-cta-device .ng-phone { width: 315px; }
+.ng-hero-left .ng-phone { rotate: -9deg; }
+.ng-hero-right .ng-phone { rotate: 9deg; }
+
+/* Screens are illustrative views of documented features, with example data. */
+.ng-app-screen { display: flex; flex-direction: column; height: 100%; background: #050505; color: #f5f5f5; font-family: 'NortGo Landing Inter',sans-serif; text-align: left; }
+.ng-app-top { display: flex; justify-content: space-between; font-size: 8px; padding: 10px 19px 5px; }
+.ng-app-brand { display: flex; align-items: center; justify-content: space-between; padding: 8px 15px; }
+.ng-app-brand b { font-family: 'NortGo Landing Barlow',sans-serif; font-size: 24px; font-weight: 700; letter-spacing: -.04em; }
+.ng-app-brand b > span { color: #a2a2a2; }
+.ng-app-avatar { width: 21px; height: 21px; display: grid; place-items: center; background: #35251e; color: #c67a4b; border: 1px solid #5e3923; border-radius: 50%; font-size: 9px; }
+.ng-app-title { font-family: 'NortGo Landing Barlow',sans-serif; font-size: 30px; font-weight: 700; letter-spacing: -.02em; padding: 7px 16px 0; }
+.ng-app-content { padding: 7px 14px; flex: 1; min-height: 0; }
+.ng-app-subtitle { font-size: 8px; color: #969696; line-height: 1.8; margin-bottom: 15px !important; }
+.ng-app-summary { display: flex; background: #1b1b1b; border: 1px solid #303030; border-radius: 10px; margin: 9px 0 12px; padding: 10px 16px; gap: 31px; }
+.ng-app-summary span { font-size: 7px; color: #b6b6b6; display: flex; flex-direction: column; }
+.ng-app-summary b { font-size: 24px; line-height: 1.1; color: #e9e9e9; font-weight: 600; padding-bottom: 4px; }
+.ng-app-summary .ng-red { color: #ee685a; }
+.ng-app-row { position: relative; padding: 10px 13px; border: 1px solid #333; border-radius: 9px; background: #171717; margin-bottom: 7px; transition: border-color .3s,background .3s; }
+.ng-app-row small { display: block; font-size: 6px; letter-spacing: .09em; color: #d69670; margin-bottom: 5px; }
+.ng-app-row strong { font-size: 10px; font-weight: 500; display: block; }
+.ng-app-row p { font-size: 8px; color: #999; margin-top: 4px; }
+.ng-app-row > svg { position: absolute; right: 12px; top: 31px; color: #8f8f8f; }
+.ng-app-row.ng-status-red small { color: #f1736b; }
+.ng-app-row.ng-status-neutral small { color: #bbb; }
+.ng-app-row-selected { border-color: #b77344; background: #2c2119; }
+.ng-app-inline { display: flex; justify-content: center; gap: 6px; color: #ad7a59; font-size: 7px; margin-top: 4px; }
+.ng-app-nav { display: flex; flex-shrink: 0; justify-content: space-around; background: #151515; border-top: 1px solid #333; padding: 9px 3px 15px; margin-top: auto; }
+.ng-app-nav > span { color: #737373; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.ng-app-nav small { font-size: 6px; }
+.ng-app-nav .ng-app-active,.ng-app-tabs .ng-app-active { color: #d08a5e; }
+.ng-app-card { border: 1px solid #303030; background: #1c1c1e; border-radius: 10px; padding: 9px 12px; margin-bottom: 10px; }
+.ng-app-card-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
+.ng-app-card-heading b { font-family: 'NortGo Landing Barlow',sans-serif; font-weight: 600; font-size: 15px; }
+.ng-app-card-heading > span { font-size: 7px; color: #a6a6a6; }
+.ng-app-tabs { display: flex; gap: 17px; margin: 5px 0 20px; font-size: 7px; color: #888; }
+.ng-task-row { display: flex; gap: 11px; align-items: center; padding: 7px 0; border-bottom: 1px solid #333; color: #7e7e7e; }
+.ng-task-row:last-child { border: 0; padding-bottom: 4px; }
+.ng-task-row strong { font-size: 10px; display: block; color: #dcdcdc; font-weight: 400; }
+.ng-task-row small { font-size: 7px; display: block; margin-top: 3px; }
+.ng-check { width: 20px; height: 20px; border-radius: 50%; background: #325b38; color: #7cd887; display: grid; place-items: center; }
+.ng-task-done strong { text-decoration: line-through; color: #858585; }
+.ng-app-new { background: #9c451e; border: 1px solid #b66436; color: #f7d7c3; text-align: center; padding: 9px; font-size: 9px; border-radius: 7px; margin: 8px 0; }
+.ng-habit-days { display: grid; grid-template-columns: repeat(7,1fr); gap: 4px; margin-top: 10px; }
+.ng-habit-days small { color: #939393; font-size: 6px; text-align: center; }
+.ng-habit-days i { height: 14px; border-radius: 4px; background: #303030; }
+.ng-habit-days .ng-habit-filled { background: #397343; }
+.ng-health-water { background: #18252b; border: 1px solid #294c5a; border-radius: 10px; padding: 12px; color: #89bccf; margin: 11px 0 12px; }
+.ng-health-water strong { font-size: 12px; font-weight: 500; }
+.ng-health-water p { font-size: 9px; margin-top: 8px; }
+.ng-health-water b { font-size: 28px; font-weight: 500; color: #d8e9ef; }
+.ng-water-drops { display: flex; gap: 7px; margin-top: 10px; }
+.ng-water-drops .ng-dim { color: #516773; }
+.ng-health-row { display: flex; gap: 10px; padding: 8px 11px; margin-bottom: 8px; border: 1px solid #333; background: #1c1c1e; border-radius: 9px; color: #b59c88; }
+.ng-health-row > span { flex: 1; }
+.ng-health-row strong { display: block; color: #ddd; font-size: 9px; font-weight: 500; }
+.ng-health-row small { display: block; color: #999; font-size: 7px; margin-top: 4px; }
+.ng-app-health-note { display: flex; gap: 5px; align-items: center; justify-content: center; color: #869e8e; font-size: 6px; margin-top: 10px !important; }
+.ng-notes-row { border-bottom: 1px solid #383838; padding: 6px 0; }
+.ng-notes-row:last-child { border: 0; }
+.ng-notes-row strong { font-size: 9px; display: block; font-weight: 500; }
+.ng-notes-row small { font-size: 7px; display: block; color: #888; margin-top: 4px; }
+.ng-note-open { background: #2b221b; border-color: #67462d; }
+.ng-app-label { font-size: 5px; letter-spacing: .08em; color: #cd956c; }
+.ng-note-open h4 { font-size: 12px; font-weight: 500; margin-top: 8px; }
+.ng-note-open p { font-size: 8px; line-height: 1.8; color: #b8a798; margin-top: 6px; }
+.ng-note-convert { display: flex; align-items: center; gap: 5px; border-top: 1px solid #5c422e; padding-top: 8px; margin-top: 10px; font-size: 7px; color: #dca574; }
+
+@media (max-width: 1100px) {
+  .ng-heading { font-size: 48px; } .ng-feature { padding: 105px 0; } .ng-module-link { gap: 14px; padding-right: 17px; } .ng-module-index { display: none; }
+  .ng-agenda-visual { padding-right: 0; } .ng-date-display { left: -18px; } .ng-date-display > span { font-size: 130px; } .ng-agenda-label { left: -20px; }
+  .ng-finance-composition { gap: 24px; } .ng-finance-phone .ng-phone { width: 258px; } .ng-finance-terms p { font-size: 16px; }
+  .ng-done-tag { left: 0; } .ng-idea-slip { left: -20px; } .ng-cta-inner { gap: 10px; }
+}
+@media (min-width: 768px) and (max-width: 900px) {
+  .ng-heading { font-size: 41px; } .ng-module-link strong { font-size: 19px; } .ng-module-link small { font-size: 9px; }
+  .ng-agenda-visual .ng-phone { width: 249px; } .ng-date-display { display: none; } .ng-agenda-label { bottom: 70px; left: -15px; min-width: 210px; padding: 17px; }
+  .ng-day-sticky > .ng-container { gap: 36px; } .ng-day-visual .ng-phone { width: 286px; } .ng-fragments { max-width: 520px; width: 100%; margin-inline: auto; }
+  .ng-finance-composition { grid-template-columns: 1fr 1fr; } .ng-finance-phone { grid-column: 2; grid-row: 1 / 3; } .ng-finance-side { padding: 0; } .ng-finance-side-right { grid-column: 1; }
+  .ng-finance-amount { margin-top: 28px; } .ng-finance-terms { margin-top: 28px; } .ng-finance-side-right .ng-finance-amount { margin-top: 0; }
+}
+@media (max-width: 767px) {
+  .ng-heading { font-size: 42px; } .ng-body { font-size: 14px; line-height: 1.8; } .ng-feature { padding: 85px 0 100px; } .ng-feature-next { margin-top: 28px; }
+  .ng-problem { padding: 82px 0 66px; } .ng-fragments { height: 360px; max-width: 420px; margin: 0 auto; width: 100%; } .ng-fragment { padding: 14px 15px; font-size: 9px; gap: 10px; } .ng-fragment-one { top: 15px; left: 5px; } .ng-fragment-two { top: 90px; right: 0; } .ng-fragment-three { top: 220px; left: 0; } .ng-fragment-four { bottom: 0; right: 5px; } .ng-fragment-five { top: 148px; left: 0; } .ng-fragments-center { top: 143px; font-size: 21px; text-align: right; padding-right: 30px; } .ng-fragments::before { width: 280px; height: 280px; left: calc(50% - 140px); top: 30px; }
+  .ng-overview { padding: 84px 0 40px; } .ng-overview-heading { display: block; margin-bottom: 40px; } .ng-overview-heading > p { margin-top: 25px; } .ng-module-directory { grid-template-columns: repeat(2,1fr); column-gap: 16px; } .ng-module-link { min-height: 104px; gap: 12px; padding: 22px 0; } .ng-module-link > svg { width: 20px; } .ng-module-link strong { font-size: 18px; } .ng-module-link small { font-size: 8px; } .ng-module-arrow { display: none; } .ng-overview-foot { font-size: 9px; padding-top: 30px; }
+  .ng-day { height: auto; min-height: 0; } .ng-day-sticky,.ng-day-static .ng-day-sticky { position: relative; min-height: 0; padding: 84px 0; } .ng-day-step { opacity: 1; } .ng-day-steps { margin-top: 26px; } .ng-day-step p { font-size: 11px; } .ng-day-visual { padding-top: 10px; } .ng-day-visual .ng-phone { rotate: 0deg; } .ng-visual-caption { font-size: 7px; margin-top: 29px; }
+  .ng-agenda-visual { max-width: 420px; width: 100%; margin: 0 auto; padding: 20px 10px 0 0; } .ng-agenda-visual .ng-phone { width: 258px; rotate: 4deg; } .ng-date-display { left: 0; top: 90px; } .ng-date-display > span { font-size: 145px; } .ng-date-display small { font-size: 6px; } .ng-agenda-label { bottom: 73px; left: 0; min-width: 218px; padding: 18px; }
+  .ng-task-visual,.ng-routine-visual,.ng-health-visual,.ng-notes-visual { margin-top: 12px; } .ng-done-tag { bottom: 80px; left: 0; padding: 17px; } .ng-routine-quote { font-size: 19px; } .ng-rhythm { left: 0; right: 0; gap: 8px; } .ng-routine-note { font-size: 8px; padding: 12px 17px; }
+  .ng-finance-heading { align-items: flex-start; gap: 10px; } .ng-finance-heading .ng-section-number { white-space: nowrap; padding-top: 3px; } .ng-finance-heading .ng-heading { font-size: 38px; } .ng-finance-heading > div { flex: 1; } .ng-finance-composition { grid-template-columns: 1fr; margin-top: 28px; gap: 38px; } .ng-finance-side { padding-bottom: 0; } .ng-finance-side:first-child .ng-finance-amount { display: none; } .ng-finance-phone .ng-phone { width: 286px; } .ng-finance-side-right { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; } .ng-finance-side-right .ng-finance-amount,.ng-finance-terms { margin-top: 0; padding-top: 23px; } .ng-finance-amount { gap: 8px; } .ng-finance-amount b { font-size: 13px; } .ng-finance-terms p { font-size: 13px; margin-top: 12px; } .ng-finance-amount p { font-size: 11px; }
+  .ng-health-caption { font-size: 9px; } .ng-health-disclaimer { margin-top: 20px !important; } .ng-note-flow { gap: 12px; font-size: 9px; } .ng-idea-slip { left: 0; padding: 22px 20px; bottom: 29px; } .ng-idea-slip p { font-size: 13px; }
+  .ng-integration { padding: 85px 0 40px; } .ng-integration .ng-eyebrow { font-size: 7px; letter-spacing: .14em; } .ng-connected-system { margin: 42px auto; } .ng-connected-line { display: none; } .ng-connected-modules { grid-template-columns: repeat(3,1fr); gap: 30px 16px; margin-top: 35px; } .ng-connected-modules a { padding: 18px 8px; border-top: 1px solid #d9c7b5; gap: 12px; } .ng-connected-modules svg { outline: 0; } .ng-connected-brand img { width: 85px; height: 85px; } .ng-integration-bottom { flex-direction: column; gap: 10px; align-items: center; padding-top: 24px; }
+  .ng-cta { padding-top: 80px; } .ng-cta-inner { grid-template-columns: 1fr; gap: 32px; } .ng-cta-inner > div:first-child { padding-bottom: 0; } .ng-cta-device { margin: 16px 0 -175px; } .ng-cta-device .ng-phone { width: 255px; } .ng-cta .ng-heading { font-size: 42px; }
+}
+@media (max-width: 1023px) { .ng-container { width: calc(100% - 56px); } .ng-hero-title { font-size: 70px; } .ng-hero-note-left { left: 0; } .ng-hero-note-right { right: 0; } }
+@media (max-width: 767px) {
+  .ng-container { width: calc(100% - 40px); } .ng-header { padding: 18px 0; } .ng-brand { font-size: 21px; gap: 7px; } .ng-brand img { width: 32px; height: 32px; } .ng-nav-cta { padding: 9px 13px; gap: 8px; }
+  .ng-hero { padding-top: 132px; min-height: auto; } .ng-hero-title { font-size: clamp(41px, 10.4vw, 66px); letter-spacing: -.065em; line-height: 1.08; } .ng-hero-copy { font-size: 14px; } .ng-hero .ng-eyebrow { font-size: 8px; margin-bottom: 20px; }
+  .ng-button { padding: 13px 17px; gap: 12px; font-size: 12px; min-height: 47px; } .ng-hero-stage { margin-top: 50px; height: 465px; } .ng-hero-center { left: calc(50% - 110px); } .ng-hero-center .ng-phone { width: 220px; padding: 6px; border-radius: 30px; } .ng-hero-center .ng-phone-screen { border-radius: 24px; }
+  .ng-hero-side { top: 65px; opacity: .28; } .ng-hero-side .ng-phone { width: 176px; border-radius: 25px; padding: 6px; } .ng-hero-side .ng-phone-screen { border-radius: 20px; } .ng-hero-left { left: calc(50% - 261px); } .ng-hero-right { right: calc(50% - 261px); }
+  .ng-hero-note { padding: 11px; gap: 8px; } .ng-hero-note-left { top: 288px; left: -3px; } .ng-hero-note-right { display: none; } .ng-hero-note strong { font-size: 10px; } .ng-hero-note small { font-size: 6px; } .ng-note-icon { width: 28px; height: 28px; }
+  .ng-hero-bottom { font-size: 7px; } .ng-footer-bottom { flex-direction: column; } .nortgo-landing button, .ng-button { user-select: none; } .nortgo-landing ::-webkit-scrollbar { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .nortgo-landing *, .nortgo-landing *::before, .nortgo-landing *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+

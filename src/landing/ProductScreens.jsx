@@ -1,0 +1,25 @@
+import React from 'react';
+import { CalendarDays, Check, Circle, Bell, Repeat2, StickyNote, Heart, Home, CheckCheck, Wallet, Droplet, Moon, Footprints, Utensils, ChevronRight } from 'lucide-react';
+
+export function ScreenShell({ title, children, active }) {
+  const nav = [[Home, 'Início'], [Repeat2, 'Rotinas'], [CalendarDays, 'Agenda'], [CheckCheck, 'Tarefas'], [StickyNote, 'Notas']];
+  return <div className="ng-app-screen"><div className="ng-app-top"><span>9:41</span><span>● ▰</span></div><div className="ng-app-brand"><span className="ng-app-avatar">W</span><b><span>Nort</span>Go</b><Bell size={14} /></div><h3 className="ng-app-title">{title}</h3><div className="ng-app-content">{children}</div><div className="ng-app-nav">{nav.map(([Icon, label]) => <span key={label} className={active === label ? 'ng-app-active' : ''}><Icon size={17} strokeWidth={1.6} /><small>{label}</small></span>)}</div></div>;
+}
+export function DayScreen({ current = 0 }) {
+  const rows = [{ color: 'ng-status-red', tag: 'ATRASADA', title: 'Enviar proposta', detail: 'Prazo: ontem' }, { color: 'ng-status-copper', tag: 'VENCE HOJE', title: 'Internet', detail: 'R$ 150,00' }, { color: 'ng-status-neutral', tag: 'COMPROMISSO', title: 'Dentista', detail: 'Hoje, às 14h' }];
+  return <ScreenShell title="CENTRO DE AÇÃO" active="Início"><p className="ng-app-subtitle">O que precisa da sua atenção hoje.</p><div className="ng-app-summary"><span><b>3</b>prioridades</span><span><b className="ng-red">1</b>em atraso</span></div><div className="ng-day-rows">{rows.map((row, index) => <div key={row.title} className={`ng-app-row ${row.color} ${current === index ? 'ng-app-row-selected' : ''}`}><small>{row.tag}</small><strong>{row.title}</strong><p>{row.detail}</p><ChevronRight size={15} /></div>)}</div><div className="ng-app-inline"><CheckCheck size={14} /><span>Um passo de cada vez.</span></div></ScreenShell>;
+}
+export function TaskScreen() {
+  return <ScreenShell title="TAREFAS" active="Tarefas"><div className="ng-app-tabs"><span className="ng-app-active">Hoje</span><span>Em andamento</span><span>Concluídas</span></div><div className="ng-app-card">{[{name:'Enviar documento',done:true,when:'Hoje'},{name:'Comprar ração',when:'Hoje'},{name:'Organizar a semana',when:'Amanhã'}].map(task => <div key={task.name} className={`ng-task-row ${task.done?'ng-task-done':''}`}>{task.done ? <span className="ng-check"><Check size={13} /></span> : <Circle size={20} />}<span><strong>{task.name}</strong><small>{task.when}</small></span></div>)}</div><div className="ng-app-new">+ Nova tarefa</div><p className="ng-app-subtitle">Mais espaço para o que vem depois.</p></ScreenShell>;
+}
+export function RoutineScreen() {
+  const days = Array.from({ length: 28 }, (_, i) => i);
+  const completed = new Set([0,1,2,4,5,7,8,9,10,12,13,14,15,17,18,19,20,21,22,23,24]);
+  return <ScreenShell title="ROTINAS" active="Rotinas"><div className="ng-app-card"><div className="ng-app-card-heading"><b>DIÁRIAS</b><span>2 de 3</span></div>{['Beber água','Ler 15 minutos','Caminhar'].map((habit,i) => <div key={habit} className="ng-task-row">{i<2?<span className="ng-check"><Check size={13}/></span>:<Circle size={20}/>}<span><strong>{habit}</strong></span></div>)}</div><div className="ng-app-card"><div className="ng-app-card-heading"><b>SUA CONSTÂNCIA</b><span>Este mês</span></div><div className="ng-habit-days">{'STQQSSD'.split('').map((d,i)=><small key={i}>{d}</small>)}{days.map(d=><i className={completed.has(d)?'ng-habit-filled':''} key={d}/>)}</div></div><div className="ng-app-new">+ Nova rotina</div></ScreenShell>;
+}
+export function HealthScreen() {
+  return <ScreenShell title="SAÚDE" active=""><p className="ng-app-subtitle">Pequenos cuidados. Todos os dias.</p><div className="ng-health-water"><div className="flex items-center gap-2"><Droplet size={20}/><strong>Água</strong></div><p><b>4</b> de 8 copos</p><div className="ng-water-drops">{Array.from({length:8},(_,i)=><Droplet key={i} size={15} fill={i<4?'currentColor':'none'} className={i<4?'':'ng-dim'}/>)}</div></div>{[[Moon,'Sono','7h30 registradas'],[Utensils,'Alimentação','Registro do dia'],[Footprints,'Atividade física','20 min de caminhada']].map(([Icon,label,value])=><div key={label} className="ng-health-row"><Icon size={20}/><span><strong>{label}</strong><small>{value}</small></span><ChevronRight size={13}/></div>)}<p className="ng-app-health-note"><Heart size={11}/> Acompanhamento pessoal</p></ScreenShell>;
+}
+export function NotesScreen() {
+  return <ScreenShell title="NOTAS" active="Notas"><div className="ng-app-new">+ Nova nota</div><div className="ng-app-card">{['Ideias para a semana','Lista do mercado','Reunião do projeto'].map((note,i)=><div className="ng-notes-row" key={note}><strong>{note}</strong><small>{i===0?'Hoje':'Ontem'}</small></div>)}</div><div className="ng-app-card ng-note-open"><span className="ng-app-label">UMA IDEIA, UM PRÓXIMO PASSO</span><h4>Marcar dentista</h4><p>Ligar para a clínica e ver os horários da próxima semana.</p><div className="ng-note-convert"><CheckCheck size={12}/> Transformar em tarefa</div></div></ScreenShell>;
+}

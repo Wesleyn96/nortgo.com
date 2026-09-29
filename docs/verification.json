@@ -1,0 +1,303 @@
+[
+  {
+    "width": 390,
+    "documentWidth": 390,
+    "height": 13654,
+    "headingCount": 1,
+    "missingImages": [],
+    "brokenAnchors": [],
+    "fonts": "loaded",
+    "appOverflow": [
+      {
+        "title": "CENTRO DE AÇÃO",
+        "overflow": 0
+      },
+      {
+        "title": "TAREFAS",
+        "overflow": 0
+      },
+      {
+        "title": "ROTINAS",
+        "overflow": 0
+      },
+      {
+        "title": "SAÚDE",
+        "overflow": 0
+      },
+      {
+        "title": "NOTAS",
+        "overflow": 0
+      }
+    ],
+    "contentOverlap": [
+      {
+        "title": "CENTRO DE AÇÃO",
+        "overlap": 1
+      },
+      {
+        "title": "TAREFAS",
+        "overlap": 0
+      },
+      {
+        "title": "ROTINAS",
+        "overlap": 0
+      },
+      {
+        "title": "SAÚDE",
+        "overlap": 0
+      },
+      {
+        "title": "NOTAS",
+        "overlap": 0
+      }
+    ],
+    "forbiddenCopy": false,
+    "mobileMenuClosed": true,
+    "anchorNavigated": true,
+    "moduleTabs": [
+      {
+        "name": "Agenda",
+        "selected": "true",
+        "panel": "ng-tab-agenda"
+      },
+      {
+        "name": "Tarefas",
+        "selected": "true",
+        "panel": "ng-tab-tarefas"
+      },
+      {
+        "name": "Rotinas",
+        "selected": "true",
+        "panel": "ng-tab-rotinas"
+      },
+      {
+        "name": "Finanças",
+        "selected": "true",
+        "panel": "ng-tab-financas"
+      },
+      {
+        "name": "Saúde",
+        "selected": "true",
+        "panel": "ng-tab-saude"
+      },
+      {
+        "name": "Notas",
+        "selected": "true",
+        "panel": "ng-tab-notas"
+      }
+    ],
+    "keyboardTab": "true",
+    "registerRoute": true,
+    "legacyRoute": "Foco no que importa.\nVida organizada.",
+    "loginRoute": true,
+    "errors": []
+  },
+  {
+    "width": 768,
+    "documentWidth": 768,
+    "height": 11634,
+    "headingCount": 1,
+    "missingImages": [],
+    "brokenAnchors": [],
+    "fonts": "loaded",
+    "appOverflow": [
+      {
+        "title": "CENTRO DE AÇÃO",
+        "overflow": 0
+      },
+      {
+        "title": "TAREFAS",
+        "overflow": 0
+      },
+      {
+        "title": "ROTINAS",
+        "overflow": 0
+      },
+      {
+        "title": "SAÚDE",
+        "overflow": 0
+      },
+      {
+        "title": "NOTAS",
+        "overflow": 0
+      }
+    ],
+    "contentOverlap": [
+      {
+        "title": "CENTRO DE AÇÃO",
+        "overlap": 1
+      },
+      {
+        "title": "TAREFAS",
+        "overlap": 0
+      },
+      {
+        "title": "ROTINAS",
+        "overlap": 0
+      },
+      {
+        "title": "SAÚDE",
+        "overlap": 0
+      },
+      {
+        "title": "NOTAS",
+        "overlap": 0
+      }
+    ],
+    "forbiddenCopy": false,
+    "moduleTabs": [
+      {
+        "name": "Agenda",
+        "selected": "true",
+        "panel": "ng-tab-agenda"
+      },
+      {
+        "name": "Tarefas",
+        "selected": "true",
+        "panel": "ng-tab-tarefas"
+      },
+      {
+        "name": "Rotinas",
+        "selected": "true",
+        "panel": "ng-tab-rotinas"
+      },
+      {
+        "name": "Finanças",
+        "selected": "true",
+        "panel": "ng-tab-financas"
+      },
+      {
+        "name": "Saúde",
+        "selected": "true",
+        "panel": "ng-tab-saude"
+      },
+      {
+        "name": "Notas",
+        "selected": "true",
+        "panel": "ng-tab-notas"
+      }
+    ],
+    "keyboardTab": "true",
+    "registerRoute": true,
+    "legacyRoute": "Foco no que importa.\nVida organizada.",
+    "loginRoute": true,
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "documentWidth": 1440,
+    "height": 12235,
+    "headingCount": 1,
+    "missingImages": [],
+    "brokenAnchors": [],
+    "fonts": "loaded",
+    "appOverflow": [
+      {
+        "title": "CENTRO DE AÇÃO",
+        "overflow": 0
+      },
+      {
+        "title": "TAREFAS",
+        "overflow": 0
+      },
+      {
+        "title": "ROTINAS",
+        "overflow": 0
+      },
+      {
+        "title": "SAÚDE",
+        "overflow": 0
+      },
+      {
+        "title": "NOTAS",
+        "overflow": 0
+      }
+    ],
+    "contentOverlap": [
+      {
+        "title": "CENTRO DE AÇÃO",
+        "overlap": 1
+      },
+      {
+        "title": "TAREFAS",
+        "overlap": 0
+      },
+      {
+        "title": "ROTINAS",
+        "overlap": 0
+      },
+      {
+        "title": "SAÚDE",
+        "overlap": 0
+      },
+      {
+        "title": "NOTAS",
+        "overlap": 0
+      }
+    ],
+    "forbiddenCopy": false,
+    "moduleTabs": [
+      {
+        "name": "Agenda",
+        "selected": "true",
+        "panel": "ng-tab-agenda"
+      },
+      {
+        "name": "Tarefas",
+        "selected": "true",
+        "panel": "ng-tab-tarefas"
+      },
+      {
+        "name": "Rotinas",
+        "selected": "true",
+        "panel": "ng-tab-rotinas"
+      },
+      {
+        "name": "Finanças",
+        "selected": "true",
+        "panel": "ng-tab-financas"
+      },
+      {
+        "name": "Saúde",
+        "selected": "true",
+        "panel": "ng-tab-saude"
+      },
+      {
+        "name": "Notas",
+        "selected": "true",
+        "panel": "ng-tab-notas"
+      }
+    ],
+    "keyboardTab": "true",
+    "registerRoute": true,
+    "legacyRoute": "Foco no que importa.\nVida organizada.",
+    "loginRoute": true,
+    "errors": []
+  },
+  {
+    "heroProgress": 0.25,
+    "phoneTransform": "matrix3d(0.974724, 0, 0.0858182, 0, 0, 0.978333, 0, 0, -0.0839588, 0, 0.996311, 0, 0, -107.692, 0, 1)"
+  },
+  {
+    "heroProgress": 0.7,
+    "phoneTransform": "matrix(0.78, 0, 0, 0.78, 0, -280)"
+  },
+  {
+    "scrollProgress": 0.1,
+    "activeStep": [
+      "O que ficou para trás."
+    ]
+  },
+  {
+    "scrollProgress": 0.5,
+    "activeStep": [
+      "O que vence hoje."
+    ]
+  },
+  {
+    "scrollProgress": 0.9,
+    "activeStep": [
+      "O que vem a seguir."
+    ]
+  }
+]
