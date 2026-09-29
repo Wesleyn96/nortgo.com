@@ -821,6 +821,13 @@ export function NotesScreen() {
   .ng-module-tabs button { min-height: 40px; padding: 6px 3px; gap: 4px; font-size: 10px; }
   .ng-module-tabs button svg { width: 13px; height: 13px; flex-shrink: 0; }
 }
+/* Main landing sections fill at least the visible mobile viewport height. */
+@media (max-width: 767px) {
+  .nortgo-landing main > section { min-height: 100svh; box-sizing: border-box; }
+  .ng-product-theater > .ng-container { min-height: calc(100svh - 54px); justify-content: center; }
+  .ng-finale { min-height: 100svh; display: flex; align-items: center; }
+  .ng-finale > .ng-container { width: 100%; }
+}
 ```
 
 ## src/landing/landing.css
