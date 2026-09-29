@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
 import { CalendarDays, CheckCheck, Wallet } from 'lucide-react';
 import { Action, Phone } from './LandingPrimitives';
-import { useLandingMotion, landingEase } from './motion';
+import { useDesktopScene, useLandingMotion, landingEase } from './motion';
 
 const chapters = [
   { image: 'home', start: 0, left: 'Veja', right: 'Organize', caption: 'Siga mais leve.', alt: 'Tela real do NortGo com a visão de hoje, próximas ações e os seis módulos.' },
@@ -36,7 +36,7 @@ function ChapterWords({ chapter, index, progress }) {
 export default function LandingHero() {
   const ref = useRef(null);
   const reduced = useLandingMotion();
-  const cinematic = !reduced;
+  const cinematic = useDesktopScene();
   const [viewport, setViewport] = useState(() => ({width: typeof window === 'undefined' ? 1440 : window.innerWidth, height: typeof window === 'undefined' ? 1000 : window.innerHeight}));
   useEffect(() => {
     const resize = () => setViewport({width:window.innerWidth,height:window.innerHeight});
