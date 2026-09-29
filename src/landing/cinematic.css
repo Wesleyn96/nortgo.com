@@ -1,5 +1,5 @@
 /* Product scenes: isolated to the NortGo landing. No global theme changes. */
-.nortgo-landing { --ng-halo: #d8793e; }
+.nortgo-landing { --ng-halo: #d8793e; --ng-title-size: clamp(64px,6.7vw,105px); }
 .ng-header { border: 0; padding-top: 26px; }
 .ng-header > .ng-container { padding: 12px 18px; border: 0; border-radius: 16px; background: #10100f91; backdrop-filter: blur(20px); }
 .ng-header .ng-nav-cta { background: #f0d4bb; color: #3d2517; border-color: #f4dbc6; border-radius: 999px; font-weight: 600; }
@@ -16,7 +16,7 @@
 .ng-cinema-halo::after { content: ''; position: absolute; width: 550px; height: 550px; left: 325px; top: 210px; border-radius: 50%; border: 1px solid #dda46d45; box-shadow: 0 0 90px #e39c6630, inset 0 0 90px #e39c661a; }
 .ng-cinema-copy { position: absolute; top: clamp(145px,15svh,185px); left: 24px; right: 24px; text-align: center; z-index: 5; }
 .ng-cinema-copy .ng-eyebrow { justify-content: center; font-size: 9px; letter-spacing: .22em; }
-.ng-cinema-copy h1 { margin: 23px auto 0; font-size: clamp(64px,6.7vw,105px); line-height: .99; letter-spacing: -.065em; font-weight: 500; }
+.ng-cinema-copy h1 { margin: 23px auto 0; font-size: var(--ng-title-size); line-height: .99; letter-spacing: -.065em; font-weight: 500; }
 .ng-cinema-copy h1 span { color: #edb189; }
 .ng-cinema-copy p { color: #b6aaa0; font-size: 14px; margin-top: 20px; }
 .ng-cinema-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 25px; }
@@ -60,7 +60,7 @@
 .ng-product-theater { position: relative; isolation: isolate; padding: 120px 0 65px; background: #0a0b0a; overflow: hidden; }
 .ng-theater-heading { text-align: center; }
 .ng-theater-heading .ng-eyebrow { justify-content: center; }
-.ng-theater-heading .ng-heading { font-size: clamp(60px,7vw,104px); margin-top: 24px; line-height: .97; }
+.ng-theater-heading .ng-heading { font-size: var(--ng-title-size); margin-top: 24px; line-height: .97; }
 .ng-theater-heading .ng-body { margin-top: 24px; }
 .ng-theater-grid { position: absolute; inset: 32% -20% -30%; z-index: -1; background: linear-gradient(#deb1840c 1px,transparent 1px),linear-gradient(90deg,#deb1840c 1px,transparent 1px); background-size: 85px 85px; transform: perspective(650px) rotateX(53deg); transform-origin: center; mask-image: radial-gradient(ellipse,#000,transparent 65%); }
 .ng-module-tabs { position: relative; z-index: 8; width: fit-content; max-width: 100%; margin: 42px auto 0; display: flex; gap: 5px; padding: 7px; border: 1px solid #8b684633; border-radius: 50px; background: #161613; }
@@ -139,7 +139,7 @@
 .ng-finale { position: relative; padding: 115px 0 0; background: linear-gradient(#f5f0e8 0%,#f1ddc1 58%,#b7753f 100%); overflow: hidden; }
 .ng-finale-copy { text-align: center; position: relative; z-index: 4; }
 .ng-finale-copy .ng-eyebrow { justify-content: center; }
-.ng-finale-copy h2 { margin-top: 0; font-size: clamp(60px,7.3vw,108px); font-weight: 500; letter-spacing: -.07em; line-height: .99; }
+.ng-finale-copy h2 { margin-top: 0; font-size: var(--ng-title-size); font-weight: 500; letter-spacing: -.07em; line-height: .99; }
 .ng-finale-copy h2 > span { color: #a76638; }
 .ng-finale-copy > p { font-size: 14px; color: #8a715b; margin-top: 24px; }
 .ng-finale-copy .ng-button { margin-top: 28px; }
@@ -157,12 +157,14 @@
 .ng-footer { position: relative; border-radius: 25px 25px 0 0; margin-top: -20px; border-top: 1px solid #6c513d; z-index: 5; }
 
 @media (max-width: 1100px) {
-  .ng-cinema-copy h1 { font-size: 76px; } .ng-cinema-word-one { right: calc(50% + 170px); } .ng-cinema-word-two { left: calc(50% + 170px); }
+  .nortgo-landing { --ng-title-size: 76px; }
+  .ng-cinema-copy h1 { font-size: var(--ng-title-size); } .ng-cinema-word-one { right: calc(50% + 170px); } .ng-cinema-word-two { left: calc(50% + 170px); }
   .ng-module-tabs button { padding: 12px 15px; } .ng-theater-note-left { left: 12px; } .ng-theater-note-right { right: 12px; }
   .ng-agenda > .ng-container { padding: 55px 35px; } .ng-finance-composition { padding: 45px 30px; gap: 28px; }
 }
 @media (max-width: 1023px) {
-  .ng-cinema-static .ng-cinema-scene { height: 1210px; } .ng-cinema-copy { top: 160px; } .ng-cinema-copy h1 { font-size: 69px; } .ng-cinema-device-position { top: 510px; }
+  .nortgo-landing { --ng-title-size: 69px; }
+  .ng-cinema-static .ng-cinema-scene { height: 1210px; } .ng-cinema-copy { top: 160px; } .ng-cinema-copy h1 { font-size: var(--ng-title-size); } .ng-cinema-device-position { top: 510px; }
   .ng-satellite-agenda { left: 2%; } .ng-satellite-task { right: 2%; } .ng-satellite-wallet { left: auto; right: 7%; }
   .ng-satellite { padding: 14px; gap: 10px; } .ng-satellite b { font-size: 9px; } .ng-satellite > span { padding: 8px; }
   .ng-cinema-bottom { left: 28px; right: 28px; } .ng-cinema-bottom > span:last-child { display: none; }
@@ -174,15 +176,16 @@
   .ng-finale-word-one,.ng-finale-word-two { font-size: 26px; } .ng-finale-token-one { left: 10%; } .ng-finale-token-two { right: 7%; } .ng-finale-token-three { right: 17%; }
 }
 @media (max-width: 767px) {
+  .nortgo-landing { --ng-title-size: clamp(39px,10.3vw,61px); }
   .ng-header { padding-top: 14px; } .ng-header > .ng-container { width: calc(100% - 24px); padding: 10px 12px; border-radius: 13px; gap: 10px; } .ng-header > .ng-container > div:last-child { gap: 13px; } .ng-header .ng-brand { font-size: 20px; } .ng-header .ng-brand img { width: 29px; height: 29px; }
   .ng-cinema-static .ng-cinema-scene { height: auto; min-height: 1040px; }
-  .ng-cinema-copy { top: 142px; left: 17px; right: 17px; } .ng-cinema-copy h1 { font-size: clamp(39px,10.3vw,61px); line-height: 1.04; margin-top: 23px; } .ng-cinema-copy .ng-eyebrow { font-size: 7px; letter-spacing: .18em; } .ng-cinema-copy p { font-size: 13px; margin-top: 21px; } .ng-cinema-actions { gap: 9px; margin-top: 25px; } .ng-cinema-actions .ng-button { padding: 13px 14px; font-size: 11px; }
+  .ng-cinema-copy { top: 142px; left: 17px; right: 17px; } .ng-cinema-copy h1 { font-size: var(--ng-title-size); line-height: 1.04; margin-top: 23px; } .ng-cinema-copy .ng-eyebrow { font-size: 7px; letter-spacing: .18em; } .ng-cinema-copy p { font-size: 13px; margin-top: 21px; } .ng-cinema-actions { gap: 9px; margin-top: 25px; } .ng-cinema-actions .ng-button { padding: 13px 14px; font-size: 11px; }
   .ng-cinema-static .ng-cinema-device-position { top: 490px; left: calc(50% - 123px); width: 246px; } .ng-cinema-device .ng-phone { width: 246px; border-radius: 35px; padding: 8px; } .ng-cinema-device .ng-phone-screen { border-radius: 27px; } .ng-cinema-device::after { border-radius: 35px; }
   .ng-cinema-halo { width: 700px; height: 700px; left: calc(50% - 350px); top: 330px; filter: blur(8px); } .ng-cinema-halo::after { width: 370px; height: 370px; top: 100px; left: 165px; }
   .ng-satellite-agenda { left: -22px; top: 62% !important; rotate: -9deg; padding: 12px; } .ng-satellite-task { right: -17px; top: 82% !important; padding: 12px; } .ng-satellite small { font-size: 5px; } .ng-satellite b { font-size: 8px; } .ng-satellite > span { padding: 6px; border-radius: 8px; } .ng-satellite > span svg { width: 18px; height: 18px; } .ng-satellite-wallet { display: none; }
   .ng-cinema-bottom { left: 20px; right: 20px; bottom: 24px; font-size: 6px; } .ng-cinema-bottom a > span { display: none; }
   .ng-problem { padding-top: 80px; } .ng-problem .ng-heading { font-size: 45px; }
-  .ng-product-theater { padding: 85px 0 40px; } .ng-theater-heading .ng-heading { font-size: 66px; } .ng-theater-heading .ng-body { font-size: 13px; }
+  .ng-product-theater { padding: 85px 0 40px; } .ng-theater-heading .ng-heading { font-size: var(--ng-title-size); } .ng-theater-heading .ng-body { font-size: 13px; }
   .ng-module-tabs { display: grid; grid-template-columns: repeat(3,1fr); gap: 5px; border-radius: 20px; width: 100%; margin-top: 30px; } .ng-module-tabs button { font-size: 10px; padding: 10px 7px; gap: 6px; border-radius: 999px; }
   .ng-theater-stage { height: auto; padding-top: 590px; margin-top: 37px; } .ng-theater-main { left: calc(50% - 143px); } .ng-theater-wing { top: 65px; opacity: .18; } .ng-theater-wing .ng-phone { width: 215px; } .ng-theater-wing-left { transform: translateX(-165px) rotate(-15deg); } .ng-theater-wing-right { transform: translateX(165px) rotate(15deg); }
   .ng-theater-explanations { display: flex; min-height: 270px; padding: 20px 0 32px; }
@@ -193,7 +196,7 @@
   .ng-tasks .ng-words-list { flex-direction: row; font-size: 16px; gap: 13px; } .ng-tasks .ng-task-visual .ng-phone { transform: none; }
   .ng-finance-composition { padding: 30px 23px; margin-top: 35px; background: linear-gradient(158deg,#20231e 0%,#20231e 47%,#d6c5b0 47.1%,#e9dfd2 100%); border-radius: 22px; } .ng-finance-composition .ng-phone { width: 260px; } .ng-finance-side-right { gap: 15px; } .ng-finance-terms p { font-size: 11px; } .ng-finance-amount b { font-size: 11px; } .ng-finance-side:first-child .ng-body { font-size: 13px; }
   .ng-integration-orbit { padding: 85px 0 45px; } .ng-integration-orbit .ng-heading { font-size: 39px; } .ng-integration-orbit .ng-eyebrow { font-size: 7px; } .ng-orbit { height: 480px; margin-top: 30px; margin-inline: -5px; } .ng-orbit-module { flex-direction: column; gap: 8px; padding: 11px 13px; border-radius: 14px; min-width: 77px; } .ng-orbit-module svg { width: 21px; height: 21px; } .ng-orbit-module b { font-size: 9px; } .ng-orbit-core { width: 112px; height: 112px; } .ng-orbit-core img { width: 60px; height: 60px; } .ng-orbit-core span { margin-top: 4px; font-size: 8px; } .ng-orbit-ring { width: 82%; left: 9%; } .ng-orbit-ring-three { width: 50%; left: 25%; } .ng-orbit-statement { flex-direction: column; gap: 10px; text-align: center; font-size: 10px; }
-  .ng-finale { padding-top: 80px; } .ng-finale-copy h2 { font-size: 48px; line-height: 1.02; } .ng-finale-copy .ng-eyebrow { font-size: 7px; } .ng-finale-copy > p { font-size: 12px; } .ng-finale-stage { height: 385px; margin-top: 40px; } .ng-finale-phone { left: calc(50% - 120px); top: 25px; } .ng-finale-phone .ng-phone { width: 240px; } .ng-finale-sun { width: 420px; left: calc(50% - 210px); height: 430px; } .ng-finale-token { width: 57px; height: 57px; border-radius: 18px; } .ng-finale-token svg { width: 22px; height: 22px; } .ng-finale-token-one { left: -6px; top: 90px; } .ng-finale-token-two { right: -7px; top: 235px; } .ng-finale-token-three { right: 5%; top: -15px; width: 48px; height: 48px; } .ng-finale-word-one,.ng-finale-word-two { display: none; }
+  .ng-finale { padding-top: 80px; } .ng-finale-copy h2 { font-size: var(--ng-title-size); line-height: 1.02; } .ng-finale-copy .ng-eyebrow { font-size: 7px; } .ng-finale-copy > p { font-size: 12px; } .ng-finale-stage { height: 385px; margin-top: 40px; } .ng-finale-phone { left: calc(50% - 120px); top: 25px; } .ng-finale-phone .ng-phone { width: 240px; } .ng-finale-sun { width: 420px; left: calc(50% - 210px); height: 430px; } .ng-finale-token { width: 57px; height: 57px; border-radius: 18px; } .ng-finale-token svg { width: 22px; height: 22px; } .ng-finale-token-one { left: -6px; top: 90px; } .ng-finale-token-two { right: -7px; top: 235px; } .ng-finale-token-three { right: 5%; top: -15px; width: 48px; height: 48px; } .ng-finale-word-one,.ng-finale-word-two { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { .nortgo-landing .ng-module-tabs button,.nortgo-landing .ng-orbit-module { transition: none; } }
 @media (min-width: 1024px) and (max-height: 899px) { .ng-cinema-words .ng-cinema-word-three { display: none; } }
