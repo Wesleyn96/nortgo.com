@@ -827,6 +827,8 @@ export function NotesScreen() {
 /* Main landing sections fill at least the visible mobile viewport height. */
 @media (max-width: 767px) {
   .nortgo-landing main > section { min-height: 100svh; box-sizing: border-box; }
+  .ng-cinema-hero.ng-cinema-static,
+  .ng-cinema-static .ng-cinema-scene { min-height: 100dvh; }
   .ng-product-theater > .ng-container { min-height: calc(100svh - 54px); justify-content: center; }
   .ng-finale { min-height: 100svh; display: flex; align-items: center; }
   .ng-finale > .ng-container { width: 100%; }
