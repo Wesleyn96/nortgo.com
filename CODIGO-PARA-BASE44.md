@@ -817,29 +817,6 @@ export function NotesScreen() {
   .ng-finale { min-height: 100svh; display: flex; align-items: center; }
   .ng-finale > .ng-container { width: 100%; }
 }
-
-/* Blend neighboring mobile sections through their shared edge colors. */
-@media (max-width: 767px) {
-  .ng-cinema-static .ng-cinema-scene::after {
-    content: ''; position: absolute; inset: auto 0 0; height: 110px;
-    background: linear-gradient(to bottom, transparent, #080908);
-    pointer-events: none;
-  }
-  .ng-product-theater { background: linear-gradient(to bottom, #080908, #0a0b0a 110px); }
-  .ng-finale {
-    padding-top: 185px;
-    background: linear-gradient(to bottom, #0a0b0a, #f5f0e8 165px, #f1ddc1 60%, #b7753f);
-  }
-  .ng-finale::after {
-    content: ''; position: absolute; inset: auto 0 0; height: 90px; z-index: 2;
-    background: linear-gradient(to bottom, #b7753f00, #b7753f);
-    pointer-events: none;
-  }
-  .ng-footer {
-    margin-top: 0; border-top: 0; border-radius: 0; padding-top: 155px;
-    background: linear-gradient(to bottom, #b7753f, #0b0b0d 115px);
-  }
-}
 ```
 
 ## src/landing/landing.css
