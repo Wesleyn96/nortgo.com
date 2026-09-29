@@ -735,10 +735,11 @@ export function NotesScreen() {
   .ng-cinema-hero.ng-cinema-static {
     min-height: 100svh;
     background-color: #080908;
-    background-image: linear-gradient(180deg, #08090810 18%, #08090830 64%, #080908 100%), url('/landing/img/amber-horizon-mobile.png');
+    background-image: linear-gradient(180deg, transparent 72%, #08090880 100%), url('/landing/img/amber-horizon-mobile.png');
     background-repeat: no-repeat;
     background-position: center, center top;
-    background-size: cover, auto 145%;
+    /* Keep the image scale stable while browser bars change the section height. */
+    background-size: cover, auto 145svh;
   }
   .ng-brand > span { display: none; }
   .ng-mobile-hero-brand { display: flex; flex-direction: column; align-items: center; gap: 7px; margin-bottom: 20px; }
@@ -830,6 +831,8 @@ export function NotesScreen() {
   .nortgo-landing main > section { min-height: 100svh; box-sizing: border-box; }
   .ng-cinema-hero.ng-cinema-static,
   .ng-cinema-static .ng-cinema-scene { min-height: 100dvh; }
+  .ng-cinema-copy p { margin-top: 29px; }
+  .ng-cinema-actions { margin-top: 33px; }
   .ng-product-theater > .ng-container { min-height: calc(100svh - 54px); justify-content: center; }
   .ng-finale { min-height: 100svh; display: flex; align-items: center; }
   .ng-finale > .ng-container { width: 100%; }
