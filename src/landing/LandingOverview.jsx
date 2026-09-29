@@ -13,6 +13,16 @@ export const modules = [
   { label: 'Saúde', id: 'saude', icon: Heart, sideLeft: 'Reserve espaço para você.', textLeft: 'Registre água, sono, alimentação e atividade física junto com sua organização diária.', sideRight: 'Perceba seus hábitos.', textRight: 'Acompanhe seus registros ao longo dos dias e dê atenção aos pequenos cuidados.', src: '/landing/img/saude.webp' },
   { label: 'Notas', id: 'notas', icon: StickyNote, sideLeft: 'Uma ideia merece espaço.', textLeft: 'Guarde ideias e informações importantes para encontrar tudo quando precisar.', sideRight: 'Da anotação à ação.', textRight: 'Quando fizer sentido, transforme uma nota em tarefa ou compromisso e dê o próximo passo.', src: '/landing/img/notas-original.webp' },
 ];
+const mobileDescriptions = {
+  home: 'Veja o que precisa de atenção hoje e encontre suas próximas ações.',
+  agenda: 'Reúna compromissos, horários e lembretes para acompanhar seu dia.',
+  tarefas: 'Organize pendências, defina prazos e acompanhe suas tarefas até concluir.',
+  rotinas: 'Registre seus hábitos e acompanhe sua constância, no seu ritmo.',
+  financas: 'Acompanhe receitas, gastos e vencimentos em um só lugar.',
+  saude: 'Registre água, sono, alimentação e atividade física no dia a dia.',
+  notas: 'Guarde ideias e transforme uma nota em tarefa ou compromisso quando fizer sentido.',
+};
+
 export default function LandingOverview({ active, onSelect }) {
   const ref = useRef(null);
   const cinematic = useDesktopScene();
@@ -50,7 +60,7 @@ export default function LandingOverview({ active, onSelect }) {
         </div></motion.div>
         <div className="ng-theater-explanations" aria-live="polite" aria-atomic="true">
           <motion.div key={selected.id} initial={reduced ? false : { opacity: 0, x: explanationSide === 'left' ? -12 : 12, filter: 'blur(5px)' }} animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }} transition={{ duration: reduced ? 0 : .55, ease: landingEase }} className={`ng-theater-side-note ng-theater-note-${explanationSide}`}>
-            <h3>{explanationTitle}</h3><p>{selected.textLeft}</p><p>{selected.textRight}</p>
+            <h3>{explanationTitle}</h3><p className="ng-theater-description-full">{selected.textLeft}</p><p className="ng-theater-description-full">{selected.textRight}</p><p className="ng-theater-description-mobile">{mobileDescriptions[selected.id]}</p>
           </motion.div>
         </div>
       </div>

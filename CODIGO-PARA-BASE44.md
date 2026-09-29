@@ -258,7 +258,7 @@ export default function LandingHero() {
         <motion.div initial={reduced ? false : {opacity:0,y:18}} animate={{opacity:1,y:0}} transition={{duration:reduced?0:.9,ease:landingEase}}>
           <h1 id="hero-heading">Foco no que importa.<br /><span>Vida organizada.</span></h1>
           <p>Agenda, tarefas, contas e hábitos.<br className="md:hidden" /> Sua vida em um só lugar.</p>
-          <div className="ng-cinema-actions" inert={cinematic && pastIntro ? '' : undefined} aria-hidden={cinematic && pastIntro ? true : undefined}><Action /><Action href="#recursos" secondary>Conhecer o NortGo</Action></div>
+          <div className="ng-cinema-actions" inert={cinematic && pastIntro ? '' : undefined} aria-hidden={cinematic && pastIntro ? true : undefined}><Action /></div>
         </motion.div>
       </motion.div>
       <div className="ng-cinema-device-position">
@@ -371,6 +371,16 @@ export const modules = [
   { label: 'Saúde', id: 'saude', icon: Heart, sideLeft: 'Reserve espaço para você.', textLeft: 'Registre água, sono, alimentação e atividade física junto com sua organização diária.', sideRight: 'Perceba seus hábitos.', textRight: 'Acompanhe seus registros ao longo dos dias e dê atenção aos pequenos cuidados.', src: '/landing/img/saude.webp' },
   { label: 'Notas', id: 'notas', icon: StickyNote, sideLeft: 'Uma ideia merece espaço.', textLeft: 'Guarde ideias e informações importantes para encontrar tudo quando precisar.', sideRight: 'Da anotação à ação.', textRight: 'Quando fizer sentido, transforme uma nota em tarefa ou compromisso e dê o próximo passo.', src: '/landing/img/notas-original.webp' },
 ];
+const mobileDescriptions = {
+  home: 'Veja o que precisa de atenção hoje e encontre suas próximas ações.',
+  agenda: 'Reúna compromissos, horários e lembretes para acompanhar seu dia.',
+  tarefas: 'Organize pendências, defina prazos e acompanhe suas tarefas até concluir.',
+  rotinas: 'Registre seus hábitos e acompanhe sua constância, no seu ritmo.',
+  financas: 'Acompanhe receitas, gastos e vencimentos em um só lugar.',
+  saude: 'Registre água, sono, alimentação e atividade física no dia a dia.',
+  notas: 'Guarde ideias e transforme uma nota em tarefa ou compromisso quando fizer sentido.',
+};
+
 export default function LandingOverview({ active, onSelect }) {
   const ref = useRef(null);
   const cinematic = useDesktopScene();
@@ -408,7 +418,7 @@ export default function LandingOverview({ active, onSelect }) {
         </div></motion.div>
         <div className="ng-theater-explanations" aria-live="polite" aria-atomic="true">
           <motion.div key={selected.id} initial={reduced ? false : { opacity: 0, x: explanationSide === 'left' ? -12 : 12, filter: 'blur(5px)' }} animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }} transition={{ duration: reduced ? 0 : .55, ease: landingEase }} className={`ng-theater-side-note ng-theater-note-${explanationSide}`}>
-            <h3>{explanationTitle}</h3><p>{selected.textLeft}</p><p>{selected.textRight}</p>
+            <h3>{explanationTitle}</h3><p className="ng-theater-description-full">{selected.textLeft}</p><p className="ng-theater-description-full">{selected.textRight}</p><p className="ng-theater-description-mobile">{mobileDescriptions[selected.id]}</p>
           </motion.div>
         </div>
       </div>
@@ -632,6 +642,7 @@ export function NotesScreen() {
 .ng-theater-wing-left { transform: translateX(-285px) rotate(-15deg); }
 .ng-theater-wing-right { transform: translateX(285px) rotate(15deg); }
 .ng-theater-explanations { display: contents; }
+.ng-theater-description-mobile { display: none; }
 .ng-theater-side-note { position: absolute; top: 50%; translate: 0 -50%; isolation: isolate; z-index: 5; width: 225px; max-width: 25%; font-weight: 400; }
 .ng-theater-side-note::before { content: ''; position: absolute; inset: -45px -30px; z-index: -1; pointer-events: none; background: radial-gradient(ellipse, #0b0b0df2 25%, #0b0b0db3 55%, transparent 75%); }
 .ng-theater-side-note h3 { font-size: 25px; font-weight: 300; line-height: 1.18; letter-spacing: -.025em; color: #edaa7e; text-wrap: balance; }
@@ -785,6 +796,30 @@ export function NotesScreen() {
 @media (max-width: 767px) {
   .ng-cinema-running .ng-cinema-chapter-words > span { font-size: clamp(12px, 3.6vw, 23px); line-height: 1.2; }
   .ng-cinema-chapter-number { font-size: 10px; margin-top: 12px; }
+}
+
+/* Compact mobile product explorer: explanation, device, then module controls. */
+@media (max-width: 767px) {
+  .ng-product-theater { padding: 30px 0 24px; }
+  .ng-product-theater > .ng-container { display: flex; flex-direction: column; }
+  .ng-theater-heading { order: 0; }
+  .ng-theater-heading .ng-heading { margin-top: 0; }
+  .ng-theater-stage { order: 1; display: flex; flex-direction: column; align-items: center; gap: 12px; height: auto; width: 100%; padding: 0; margin-top: 16px; perspective: none; }
+  .ng-theater-explanations { order: -1; display: flex; align-items: center; justify-content: center; min-height: 78px; width: 100%; padding: 0; }
+  .ng-theater-side-note { position: relative; inset: auto; translate: none; width: 100%; max-width: 340px; margin: 0; text-align: center; }
+  .ng-theater-side-note h3 { font-size: 19px; line-height: 1.2; }
+  .ng-theater-side-note p { margin-top: 6px; font-size: 12px; line-height: 1.45; }
+  .ng-theater-description-full { display: none; }
+  .ng-theater-description-mobile { display: block; }
+  .ng-theater-main { position: relative; inset: auto; }
+  .ng-theater-main .ng-phone { width: clamp(125px, calc((100svh - 355px) / 2), 190px); padding: 5px; border-radius: 27px; }
+  .ng-theater-main .ng-phone-screen { border-radius: 21px; }
+  .ng-theater-main .ng-phone-speaker { top: 8px; width: 25px; left: calc(50% - 12.5px); height: 2px; }
+  .ng-theater-wing { display: none; }
+  .ng-theater-floor { inset: 80px 5% 0; height: auto; }
+  .ng-module-tabs { order: 2; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); width: 100%; max-width: 360px; gap: 3px; margin: 14px auto 0; padding: 4px; border-radius: 18px; }
+  .ng-module-tabs button { min-height: 40px; padding: 6px 3px; gap: 4px; font-size: 10px; }
+  .ng-module-tabs button svg { width: 13px; height: 13px; flex-shrink: 0; }
 }
 ```
 
