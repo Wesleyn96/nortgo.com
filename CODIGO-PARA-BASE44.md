@@ -192,12 +192,12 @@ import { Action, Phone } from './LandingPrimitives';
 import { useLandingMotion, landingEase } from './motion';
 
 const chapters = [
-  { image: 'home', start: 0, left: 'Veja.', right: 'Organize.', caption: 'Siga mais leve.', alt: 'Tela real do NortGo com a visão de hoje, próximas ações e os seis módulos.' },
-  { image: 'rotinas-original', start: .28, left: 'O que importa', right: 'é o ritmo.', alt: 'Tela real de Rotinas do NortGo, com rotinas diárias, semanais e mensais.' },
-  { image: 'agenda', start: .42, left: 'Cada compromisso.', right: 'No seu tempo.', alt: 'Tela real da Agenda do NortGo.' },
-  { image: 'tarefas', start: .56, left: 'Tire da cabeça.', right: 'Dê o próximo passo.', compactRight: true, alt: 'Tela real de Tarefas do NortGo.' },
-  { image: 'notas-original', start: .70, left: 'Uma ideia agora.', right: 'Um próximo passo depois.', alt: 'Tela real de Notas do NortGo.' },
-  { image: 'financas', start: .84, left: 'Seu dinheiro.', right: 'Sem ponto de interrogação.', alt: 'Tela real de Finanças do NortGo.' },
+  { image: 'home', start: 0, left: 'Veja', right: 'Organize', caption: 'Siga mais leve.', alt: 'Tela real do NortGo com a visão de hoje, próximas ações e os seis módulos.' },
+  { image: 'rotinas-original', start: .28, left: 'O que importa', right: 'é o ritmo', alt: 'Tela real de Rotinas do NortGo, com rotinas diárias, semanais e mensais.' },
+  { image: 'agenda', start: .42, left: 'Cada compromisso', right: 'No seu tempo', alt: 'Tela real da Agenda do NortGo.' },
+  { image: 'tarefas', start: .56, left: 'Tire da cabeça', right: 'Dê o próximo passo', compactRight: true, alt: 'Tela real de Tarefas do NortGo.' },
+  { image: 'notas-original', start: .70, left: 'Uma ideia agora', right: 'Um próximo passo depois', alt: 'Tela real de Notas do NortGo.' },
+  { image: 'financas', start: .84, left: 'Seu dinheiro', right: 'Sem ponto de interrogação', alt: 'Tela real de Finanças do NortGo.' },
 ];
 
 function ChapterScreen({ chapter, progress, active }) {
@@ -736,7 +736,7 @@ export function NotesScreen() {
   .ng-cinema-copy { top: 142px; left: 17px; right: 17px; } .ng-cinema-copy h1 { font-size: var(--ng-title-size); line-height: 1.04; margin-top: 23px; } .ng-cinema-copy .ng-eyebrow { font-size: 7px; letter-spacing: .18em; } .ng-cinema-copy p { font-size: 13px; margin-top: 21px; } .ng-cinema-actions { gap: 9px; margin-top: 25px; } .ng-cinema-actions .ng-button { padding: 13px 14px; font-size: 11px; }
   .ng-cinema-static .ng-cinema-device-position { top: 490px; left: calc(50% - 123px); width: 246px; } .ng-cinema-device .ng-phone { width: 246px; border-radius: 35px; padding: 8px; } .ng-cinema-device .ng-phone-screen { border-radius: 27px; } .ng-cinema-device::after { border-radius: 35px; }
   .ng-cinema-halo { width: 700px; height: 700px; left: calc(50% - 350px); top: 330px; filter: blur(8px); } .ng-cinema-halo::after { width: 370px; height: 370px; top: 100px; left: 165px; }
-  .ng-satellite-agenda { left: -22px; top: 62% !important; rotate: -9deg; padding: 12px; } .ng-satellite-task { right: -17px; top: 82% !important; padding: 12px; } .ng-satellite small { font-size: 5px; } .ng-satellite b { font-size: 8px; } .ng-satellite > span { padding: 6px; border-radius: 8px; } .ng-satellite > span svg { width: 18px; height: 18px; } .ng-satellite-wallet { display: none; }
+  .ng-satellite-agenda { left: 8px; top: 62% !important; rotate: -9deg; padding: 12px; } .ng-satellite-task { right: 10px; top: 82% !important; padding: 12px; } .ng-satellite small { font-size: 5px; } .ng-satellite b { font-size: 8px; } .ng-satellite > span { padding: 6px; border-radius: 8px; } .ng-satellite > span svg { width: 18px; height: 18px; } .ng-satellite-wallet { display: none; }
   .ng-cinema-bottom { left: 20px; right: 20px; bottom: 24px; font-size: 6px; } .ng-cinema-bottom a > span { display: none; }
   .ng-problem { padding-top: 80px; } .ng-problem .ng-heading { font-size: 45px; }
   .ng-product-theater { padding: 85px 0 40px; } .ng-theater-heading .ng-heading { font-size: var(--ng-title-size); } .ng-theater-heading .ng-body { font-size: 13px; }

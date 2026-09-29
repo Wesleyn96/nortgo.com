@@ -5,12 +5,12 @@ import { Action, Phone } from './LandingPrimitives';
 import { useLandingMotion, landingEase } from './motion';
 
 const chapters = [
-  { image: 'home', start: 0, left: 'Veja.', right: 'Organize.', caption: 'Siga mais leve.', alt: 'Tela real do NortGo com a visão de hoje, próximas ações e os seis módulos.' },
-  { image: 'rotinas-original', start: .28, left: 'O que importa', right: 'é o ritmo.', alt: 'Tela real de Rotinas do NortGo, com rotinas diárias, semanais e mensais.' },
-  { image: 'agenda', start: .42, left: 'Cada compromisso.', right: 'No seu tempo.', alt: 'Tela real da Agenda do NortGo.' },
-  { image: 'tarefas', start: .56, left: 'Tire da cabeça.', right: 'Dê o próximo passo.', compactRight: true, alt: 'Tela real de Tarefas do NortGo.' },
-  { image: 'notas-original', start: .70, left: 'Uma ideia agora.', right: 'Um próximo passo depois.', alt: 'Tela real de Notas do NortGo.' },
-  { image: 'financas', start: .84, left: 'Seu dinheiro.', right: 'Sem ponto de interrogação.', alt: 'Tela real de Finanças do NortGo.' },
+  { image: 'home', start: 0, left: 'Veja', right: 'Organize', caption: 'Siga mais leve.', alt: 'Tela real do NortGo com a visão de hoje, próximas ações e os seis módulos.' },
+  { image: 'rotinas-original', start: .28, left: 'O que importa', right: 'é o ritmo', alt: 'Tela real de Rotinas do NortGo, com rotinas diárias, semanais e mensais.' },
+  { image: 'agenda', start: .42, left: 'Cada compromisso', right: 'No seu tempo', alt: 'Tela real da Agenda do NortGo.' },
+  { image: 'tarefas', start: .56, left: 'Tire da cabeça', right: 'Dê o próximo passo', compactRight: true, alt: 'Tela real de Tarefas do NortGo.' },
+  { image: 'notas-original', start: .70, left: 'Uma ideia agora', right: 'Um próximo passo depois', alt: 'Tela real de Notas do NortGo.' },
+  { image: 'financas', start: .84, left: 'Seu dinheiro', right: 'Sem ponto de interrogação', alt: 'Tela real de Finanças do NortGo.' },
 ];
 
 function ChapterScreen({ chapter, progress, active }) {
