@@ -13,9 +13,6 @@ export default function LandingHeader() {
   return <header className="ng-header">
     <div className="ng-container flex items-center justify-between gap-5">
       <Brand />
-      <nav className="hidden md:flex items-center gap-8 text-sm" aria-label="Navegação principal">
-        <a href="#conteudo">O NortGo</a><a href="#recursos">Recursos</a>
-      </nav>
       <div className="flex items-center gap-5">
         <Link to="/login" className="hidden md:inline text-sm">Entrar</Link>
         <Link to="/register" className="ng-nav-cta">Começar</Link>
@@ -23,7 +20,7 @@ export default function LandingHeader() {
       </div>
     </div>
     {open && <nav id="ng-mobile-menu" className="ng-mobile-menu md:hidden" aria-label="Navegação móvel" onClick={() => setOpen(false)}>
-      <a href="#conteudo">O NortGo</a><a href="#recursos">Recursos</a><Link to="/login">Entrar</Link>
+      <Link to="/login">Entrar</Link>
     </nav>}
   </header>;
 }
