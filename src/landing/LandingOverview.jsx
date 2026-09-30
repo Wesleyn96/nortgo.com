@@ -28,8 +28,8 @@ export default function LandingOverview({ active, onSelect }) {
   const cinematic = useDesktopScene();
   const reduced = useLandingMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'center center'] });
-  const spreadLeft = useTransform(scrollYProgress, [0, 1], [-65, -285]);
-  const spreadRight = useTransform(scrollYProgress, [0, 1], [65, 285]);
+  const spreadLeft = useTransform(scrollYProgress, [0, 1], ['-4.0625rem', '-17.8125rem']);
+  const spreadRight = useTransform(scrollYProgress, [0, 1], ['4.0625rem', '17.8125rem']);
   const turnLeft = useTransform(scrollYProgress, [0, 1], [-3, -15]);
   const turnRight = useTransform(scrollYProgress, [0, 1], [3, 15]);
   const depth = useTransform(scrollYProgress, [0, 1], [.7, 1]);
@@ -50,16 +50,16 @@ export default function LandingOverview({ active, onSelect }) {
     <div className="ng-theater-grid" aria-hidden="true"/>
     <div className="ng-container relative">
       <Reveal className="ng-theater-heading"><h2 className="ng-heading">A sua vida.<br/><span className="text-landing-copper">Toda aqui.</span></h2></Reveal>
-      <div className="ng-module-tabs" role="tablist" aria-label="Explore os módulos do NortGo">{modules.map(({id,label,icon:Icon},index)=><button key={id} id={`ng-tab-${id}`} role="tab" aria-selected={index===active} aria-controls="ng-module-panel" tabIndex={index===active?0:-1} onClick={()=>onSelect(index)} onKeyDown={event=>selectByKeyboard(event,index)}><Icon size={17}/><span>{label}</span></button>)}</div>
+      <div className="ng-module-tabs" role="tablist" aria-label="Explore os módulos do NortGo">{modules.map(({id,label,icon:Icon},index)=><button key={id} id={`ng-tab-${id}`} role="tab" aria-selected={index===active} aria-controls="ng-module-panel" tabIndex={index===active?0:-1} onClick={()=>onSelect(index)} onKeyDown={event=>selectByKeyboard(event,index)}><Icon size="1.0625rem"/><span>{label}</span></button>)}</div>
       <div className="ng-theater-stage">
         <div className="ng-theater-floor" aria-hidden="true"/>
         <motion.div className="ng-theater-wing ng-theater-wing-left" style={cinematic?{x:spreadLeft,rotate:turnLeft}: {}} aria-hidden="true"><Phone src="/landing/img/home.webp" alt=""/></motion.div>
         <motion.div className="ng-theater-wing ng-theater-wing-right" style={cinematic?{x:spreadRight,rotate:turnRight}: {}} aria-hidden="true"><Phone src="/landing/img/financas.webp" alt=""/></motion.div>
-        <motion.div className="ng-theater-main" style={cinematic?{scale:depth}:{}}><div id="ng-module-panel" role="tabpanel" aria-labelledby={`ng-tab-${selected.id}`} tabIndex={0}>
-          <motion.div key={selected.id} initial={reduced?false:{opacity:0,y:12}} animate={{opacity:1,y:0}} transition={{duration:reduced?0:.35,ease:landingEase}}><Phone src={selected.src} alt={`Tela real de ${selected.label} do NortGo.`} /></motion.div>
+        <motion.div className="ng-theater-main" style={cinematic?{scale:depth}:{scale:1}}><div id="ng-module-panel" role="tabpanel" aria-labelledby={`ng-tab-${selected.id}`} tabIndex={0}>
+          <motion.div key={selected.id} initial={reduced?false:{opacity:0,y:'0.75rem'}} animate={{opacity:1,y:'0rem'}} transition={{duration:reduced?0:.35,ease:landingEase}}><Phone src={selected.src} alt={`Tela real de ${selected.label} do NortGo.`} /></motion.div>
         </div></motion.div>
         <div className="ng-theater-explanations" aria-live="polite" aria-atomic="true">
-          <motion.div key={selected.id} initial={reduced ? false : { opacity: 0, x: explanationSide === 'left' ? -12 : 12, filter: 'blur(5px)' }} animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }} transition={{ duration: reduced ? 0 : .55, ease: landingEase }} className={`ng-theater-side-note ng-theater-note-${explanationSide}`}>
+          <motion.div key={selected.id} initial={reduced ? false : { opacity: 0, x: explanationSide === 'left' ? '-0.75rem' : '0.75rem', filter: 'blur(0.3125rem)' }} animate={{ opacity: 1, x: '0rem', filter: 'blur(0rem)' }} transition={{ duration: reduced ? 0 : .55, ease: landingEase }} className={`ng-theater-side-note ng-theater-note-${explanationSide}`}>
             <h3>{explanationTitle}</h3><p className="ng-theater-description-full">{selected.textLeft}</p><p className="ng-theater-description-full">{selected.textRight}</p><p className="ng-theater-description-mobile">{mobileDescriptions[selected.id]}</p>
           </motion.div>
         </div>

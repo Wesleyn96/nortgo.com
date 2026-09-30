@@ -23,12 +23,24 @@ export function Reveal({ children, className = '', delay = 0, ...props }) {
 export function Eyebrow({ children, light = false }) {
   return <p className={`ng-eyebrow ${light ? 'ng-eyebrow-dark' : ''}`}><span aria-hidden="true" />{children}</p>;
 }
+export const PHONE_ASPECT_RATIO = 78 / 163.4;
+
 export function Phone({ src, alt, children, className = '', priority = false }) {
-  return <div className={`ng-phone ${className}`}>
+  return <div className={`ng-phone ng-phone-iphone ${className}`} data-device="iphone-17-pro-max">
     <div className="ng-phone-screen">
-      {src ? <picture><source srcSet={src} type="image/webp" /><img src={src.replace('.webp', '.jpg')} alt={alt} width="379" height="752" loading={priority ? 'eager' : 'lazy'} decoding="async" /></picture> : children}
+      <div className="ng-phone-content">
+        {src ? <picture><source srcSet={src} type="image/webp" /><img src={src.replace('.webp', '.jpg')} alt={alt} width="379" height="752" loading={priority ? 'eager' : 'lazy'} decoding="async" /></picture> : children}
+      </div>
+      <span className="ng-phone-island" aria-hidden="true"><span /></span>
+      <span className="ng-phone-home-indicator" aria-hidden="true" />
     </div>
-    <span className="ng-phone-speaker" aria-hidden="true" />
+    <div className="ng-phone-hardware" aria-hidden="true">
+      <span className="ng-phone-action-button" />
+      <span className="ng-phone-volume-up" />
+      <span className="ng-phone-volume-down" />
+      <span className="ng-phone-side-button" />
+      <span className="ng-phone-camera-control" />
+    </div>
   </div>;
 }
 export function SectionNumber({ children }) { return <span className="ng-section-number" aria-hidden="true">{children}</span>; }

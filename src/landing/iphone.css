@@ -1,0 +1,84 @@
+/* Front-view illustration of iPhone 17 Pro Max in Cosmic Orange.
+   Body proportions: 78 x 163.4 mm. Screen proportions: 1320 x 2868.
+   Percentage geometry keeps the same hardware proportions at every rem width. */
+.nortgo-landing .ng-phone.ng-phone-iphone {
+  aspect-ratio: 78 / 163.4;
+  padding: 0;
+  border: 0;
+  border-radius: 17% / 8.115%;
+  background: linear-gradient(110deg, #f1bf9a 0%, #c9763d 13%, #784023 36%, #d9915d 65%, #f6c39c 85%, #a2532c 100%);
+}
+.ng-phone-iphone::before {
+  content: '';
+  position: absolute;
+  inset: .35% .75%;
+  border-radius: 16.5% / 7.9%;
+  background: #08090b;
+  box-shadow: inset 0 0 0 .0625rem #fff3;
+}
+.nortgo-landing .ng-phone-iphone::after { content: none; }
+.ng-cinema-device:has(.ng-phone-iphone)::after { content: none; }
+.nortgo-landing .ng-phone-iphone .ng-phone-screen {
+  position: absolute;
+  inset: 1.2% 2.95%;
+  aspect-ratio: auto;
+  border-radius: 15% / 6.9%;
+  background: #080808;
+  overflow: hidden;
+}
+.ng-phone-iphone .ng-phone-content {
+  position: absolute;
+  inset: 6.6% 0 3%;
+  overflow: hidden;
+}
+.ng-phone-iphone .ng-phone-content picture,
+.ng-phone-iphone .ng-phone-content img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.ng-phone-island {
+  position: absolute;
+  z-index: 3;
+  top: 1.4%;
+  left: 35.5%;
+  width: 29%;
+  height: 3.4%;
+  border-radius: 999rem;
+  background: #000;
+  box-shadow: 0 0 0 .0625rem #28282c;
+  pointer-events: none;
+}
+.ng-phone-island > span {
+  position: absolute;
+  right: 8%;
+  top: 25%;
+  height: 50%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 32%, #203644, #0c111c 40%, #020205 73%);
+}
+.ng-phone-home-indicator {
+  position: absolute;
+  bottom: 1.1%;
+  left: 33%;
+  width: 34%;
+  height: .5%;
+  border-radius: 999rem;
+  background: #eeeeef;
+  opacity: .75;
+  pointer-events: none;
+}
+.ng-phone-hardware { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.ng-phone-hardware > span {
+  position: absolute;
+  width: 1%;
+  border-radius: .1875rem;
+  background: linear-gradient(90deg, #754426, #dfa575 55%, #9b572e);
+}
+.ng-phone-action-button { left: -.65%; top: 16%; height: 3.5%; }
+.ng-phone-volume-up { left: -.65%; top: 24%; height: 6.3%; }
+.ng-phone-volume-down { left: -.65%; top: 32.5%; height: 6.3%; }
+.ng-phone-side-button { right: -.65%; top: 26%; height: 10%; }
+.ng-phone-camera-control { right: -.65%; top: 62%; height: 7.5%; }

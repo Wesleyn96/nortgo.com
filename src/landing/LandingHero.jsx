@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
 import { CalendarDays, CheckCheck, Wallet } from 'lucide-react';
-import { Action, Phone } from './LandingPrimitives';
-import { useDesktopScene, useLandingMotion, landingEase } from './motion';
+import { Action, Phone, PHONE_ASPECT_RATIO } from './LandingPrimitives';
+import { useDesktopScene, useLandingMotion, useLandingViewport, landingEase } from './motion';
 
 const chapters = [
   { image: 'home', start: 0, left: 'Veja', right: 'Organize', caption: 'Siga mais leve.', alt: 'Tela real do NortGo com a visão de hoje, próximas ações e os seis módulos.' },
@@ -25,7 +25,7 @@ function ChapterWords({ chapter, index, progress }) {
   const next = chapters[index + 1]?.start;
   // Text clears before the next phrase enters; image layers crossfade underneath.
   const opacity = useTransform(progress, next ? [enter, enter + .04, next - .025, next + .015] : [enter, enter + .04], next ? [0, 1, 1, 0] : [0, 1]);
-  const y = useTransform(progress, [enter, enter + .04], [22, 0]);
+  const y = useTransform(progress, [enter, enter + .04], ['1.375rem', '0rem']);
   return <motion.div className={`ng-cinema-words ${index ? 'ng-cinema-chapter-words' : ''}`} style={{ opacity, y }} aria-hidden="true">
     <span className="ng-cinema-word-one">{chapter.image === 'agenda' ? <><span className="ng-cinema-desktop-label">Cada compromisso</span><span className="ng-cinema-mobile-label">Cada evento</span></> : chapter.left.replace(/\.+$/, '')}</span>
     <span className={`ng-cinema-word-two ${chapter.compactRight ? 'ng-cinema-word-compact' : ''}`}>{chapter.right.replace(/\.+$/, '')}{chapter.number && <small className="ng-cinema-chapter-number">{chapter.number}</small>}</span>
@@ -37,16 +37,13 @@ export default function LandingHero() {
   const ref = useRef(null);
   const reduced = useLandingMotion();
   const cinematic = useDesktopScene();
-  const [viewport, setViewport] = useState(() => ({width: typeof window === 'undefined' ? 1440 : window.innerWidth, height: typeof window === 'undefined' ? 1000 : window.innerHeight}));
-  useEffect(() => {
-    const resize = () => setViewport({width:window.innerWidth,height:window.innerHeight});
-    window.addEventListener('resize',resize);
-    return () => window.removeEventListener('resize',resize);
-  }, []);
+  const viewport = useLandingViewport();
+  const rootScale = viewport.rootSize / 16;
   const deviceWidth = viewport.width < 768 ? 246 : 350;
-  const settledScale = Math.max(.35,Math.min(.78,(viewport.height-240)/(deviceWidth*2)));
-  const startingTop = Math.max(viewport.width < 768 ? 490 : 515,viewport.height*.52);
-  const settledY = (viewport.height-deviceWidth*2*settledScale)/2-30-startingTop;
+  const deviceHeight = deviceWidth / PHONE_ASPECT_RATIO;
+  const settledScale = Math.max(.35,Math.min(.9,1.15*(viewport.height-240)/deviceHeight));
+  const startingTop = Math.max((viewport.width < 768 ? 490 : 515)*rootScale,viewport.height*.52);
+  const settledY = (viewport.height-deviceHeight*rootScale*settledScale)/2-30*rootScale-startingTop;
   const [pastIntro, setPastIntro] = useState(false);
   const [activeChapter, setActiveChapter] = useState(0);
   const { scrollYProgress: progress } = useScroll({ target: ref, offset: ['start start', 'end end'] });
@@ -56,7 +53,7 @@ export default function LandingHero() {
   const phoneScale = useTransform(intro, [0, .6, 1], [1.12, settledScale, settledScale]);
   const phoneY = useTransform(intro, [0, .65, 1], [0, settledY, settledY]);
   const titleOpacity = useTransform(intro, [0, .2, .36], [1, 1, 0]);
-  const titleY = useTransform(intro, [0, .4], [0, -85]);
+  const titleY = useTransform(intro, [0, .4], ['0rem', '-5.3125rem']);
   const haloScale = useTransform(intro, [0, 1], [1, .65]);
   const chipOpacity = useTransform(intro, [0, .3, .55], [1, .25, 0]);
   useMotionValueEvent(progress, 'change', value => {
@@ -67,8 +64,8 @@ export default function LandingHero() {
     <div className="ng-cinema-scene">
       <div className="ng-cinema-grid" aria-hidden="true" />
       <motion.div className="ng-cinema-halo" style={cinematic ? { scale: haloScale } : {}} aria-hidden="true" />
-      <motion.div className="ng-cinema-copy" style={cinematic ? { opacity: titleOpacity, y: titleY, pointerEvents: pastIntro ? 'none' : 'auto' } : {}}>
-        <motion.div initial={reduced ? false : {opacity:0,y:18}} animate={{opacity:1,y:0}} transition={{duration:reduced?0:.9,ease:landingEase}}>
+      <motion.div className="ng-cinema-copy" style={cinematic ? { opacity: titleOpacity, y: titleY, pointerEvents: pastIntro ? 'none' : 'auto' } : { opacity: 1, y: '0rem', pointerEvents: 'auto' }}>
+        <motion.div initial={reduced ? false : {opacity:0,y:'1.125rem'}} animate={{opacity:1,y:'0rem'}} transition={{duration:reduced?0:.9,ease:landingEase}}>
           <div className="ng-mobile-hero-brand" aria-hidden="true"><img src="/landing/img/logo-nortgo.png" alt="" width="82" height="82" /><span><span className="ng-brand-nort">Nort</span><span className="ng-brand-go">Go</span></span></div>
           <h1 id="hero-heading">Foco no que importa.<br /><span>Vida organizada.</span></h1>
           <p>Agenda, tarefas, contas e hábitos.<br className="md:hidden" /> Sua vida em um só lugar.</p>
@@ -76,16 +73,16 @@ export default function LandingHero() {
         </motion.div>
       </motion.div>
       <div className="ng-cinema-device-position">
-        <motion.div className="ng-cinema-device" style={cinematic ? {scale:phoneScale,y:phoneY} : {}}>
+        <motion.div className="ng-cinema-device" style={cinematic ? {scale:phoneScale,y:phoneY} : {scale:1,y:0}}>
           {cinematic ? <Phone><div className="ng-cinema-screen-stack">
             {chapters.map((chapter, index) => <ChapterScreen key={chapter.image} chapter={chapter} progress={progress} active={activeChapter === index} />)}
           </div></Phone> : <Phone src="/landing/img/home.webp" alt="Tela real do NortGo com a visão de hoje, próximas ações e os seis módulos." priority />}
         </motion.div>
       </div>
       <motion.div className="ng-cinema-satellites" style={cinematic ? {opacity:chipOpacity} : {}} aria-hidden="true">
-        <div className="ng-satellite ng-satellite-agenda"><span><CalendarDays size={23}/></span><div><small>SEU TEMPO</small><b>Compromissos à vista.</b></div></div>
-        <div className="ng-satellite ng-satellite-task"><span><CheckCheck size={23}/></span><div><small>SEUS PRÓXIMOS PASSOS</small><b>Uma coisa de cada vez.</b></div></div>
-        <div className="ng-satellite ng-satellite-wallet"><Wallet size={25}/><small>CONTAS EM ORDEM</small></div>
+        <div className="ng-satellite ng-satellite-agenda"><span><CalendarDays size="1.4375rem"/></span><div><small>SEU TEMPO</small><b>Compromissos à vista.</b></div></div>
+        <div className="ng-satellite ng-satellite-task"><span><CheckCheck size="1.4375rem"/></span><div><small>SEUS PRÓXIMOS PASSOS</small><b>Uma coisa de cada vez.</b></div></div>
+        <div className="ng-satellite ng-satellite-wallet"><Wallet size="1.5625rem"/><small>CONTAS EM ORDEM</small></div>
       </motion.div>
       {cinematic && chapters.map((chapter, index) => <ChapterWords key={chapter.image} chapter={chapter} index={index} progress={progress} />)}
       <div className="ng-cinema-bottom"><a href="#recursos" aria-label="Continuar para conhecer o NortGo"><span>ROLE PARA DESCOBRIR</span></a></div>

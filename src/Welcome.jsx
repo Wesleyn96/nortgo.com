@@ -6,13 +6,16 @@ import LandingFooter from './landing/LandingFooter';
 import LandingOverview from './landing/LandingOverview';
 import LandingCTA from './landing/LandingCTA';
 import LandingNavigation from './landing/LandingNavigation';
+import { useLandingViewport } from './landing/motion';
 import './landing/landing.css';
 import './landing/cinematic.css';
+import './landing/iphone.css';
 
 export default function Welcome({ legalLinks = {} }) {
   const [activeModule, setActiveModule] = useState(0);
+  const viewport = useLandingViewport();
   return <MotionConfig reducedMotion="user">
-    <LandingNavigation><div className="nortgo-landing font-landing bg-landing-bg text-landing-paper">
+    <LandingNavigation><div className="nortgo-landing font-landing bg-landing-bg text-landing-paper" style={{ '--ng-vw': `${viewport.width / 1600}rem` }}>
       <a className="ng-skip" href="#conteudo">Pular para o conteúdo</a>
       <LandingHeader />
       <main id="conteudo">
