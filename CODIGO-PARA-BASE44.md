@@ -872,7 +872,7 @@ export function NotesScreen() {
 @media (max-width: 767px) {
   .nortgo-landing main > section { min-height: 100svh; box-sizing: border-box; }
   .ng-cinema-hero.ng-cinema-static,
-  .ng-cinema-static .ng-cinema-scene { min-height: 100dvh; }
+  .ng-cinema-static .ng-cinema-scene { min-height: 100svh; }
   .ng-cinema-copy p { margin-top: 2.25rem; }
   .ng-cinema-actions { margin-top: 2.5rem; }
   .ng-product-theater > .ng-container { min-height: calc(100svh - 3.375rem); justify-content: center; }
