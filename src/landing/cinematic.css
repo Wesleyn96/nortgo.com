@@ -269,7 +269,7 @@
   .ng-theater-description-full { display: none; }
   .ng-theater-description-mobile { display: block; }
   .ng-theater-main { position: relative; inset: auto; }
-  .ng-theater-main .ng-phone { width: clamp(7.8125rem, calc((100svh - 22.1875rem) / 2), 11.875rem); padding: 0.3125rem; border-radius: 1.6875rem; }
+  .ng-theater-main .ng-phone { width: clamp(8.75rem, calc((100svh - 20.5rem) / 2), 13.25rem); padding: 0.3125rem; border-radius: 1.6875rem; }
   .ng-theater-main .ng-phone-screen { border-radius: 1.3125rem; }
   .ng-theater-main .ng-phone-speaker { top: 0.5rem; width: 1.5625rem; left: calc(50% - 0.78125rem); height: 0.125rem; }
   .ng-theater-wing { display: none; }
