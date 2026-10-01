@@ -24,8 +24,10 @@ const chapters = [
 
 function ChapterScreen({ chapter, progress, active }) {
   const opacity = useTransform(progress, [chapter.start, chapter.start + .04], [0, 1]);
-  return <motion.div className="ng-cinema-screen-layer" style={{ opacity: chapter.start === 0 ? 1 : opacity }} aria-hidden={!active}>
-    <picture><source srcSet={`/landing/img/${chapter.image}.webp`} type="image/webp" /><img src={`/landing/img/${chapter.image}.jpg`} alt={chapter.alt} width="379" height="752" decoding="async" /></picture>
+  const isFinance = chapter.image === 'financas';
+  const extension = isFinance ? 'jpeg' : 'webp';
+  return <motion.div className={`ng-cinema-screen-layer ${isFinance ? 'ng-cinema-screen-finance' : ''}`} style={{ opacity: chapter.start === 0 ? 1 : opacity }} aria-hidden={!active}>
+    <picture>{!isFinance && <source srcSet={`/landing/img/${chapter.image}.${extension}`} type="image/webp" />}<img src={`/landing/img/${chapter.image}.${isFinance ? extension : 'jpg'}`} alt={chapter.alt} width="379" height="752" decoding="async" /></picture>
   </motion.div>;
 }
 

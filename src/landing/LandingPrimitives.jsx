@@ -26,10 +26,11 @@ export function Eyebrow({ children, light = false }) {
 export const PHONE_ASPECT_RATIO = 78 / 163.4;
 
 export function Phone({ src, alt, children, className = '', priority = false }) {
+  const isWebp = src?.endsWith('.webp');
   return <div className={`ng-phone ng-phone-iphone ${className}`} data-device="iphone-17-pro-max">
     <div className="ng-phone-screen">
       <div className="ng-phone-content">
-        {src ? <picture><source srcSet={src} type="image/webp" /><img src={src.replace('.webp', '.jpg')} alt={alt} width="379" height="752" loading={priority ? 'eager' : 'lazy'} decoding="async" /></picture> : children}
+        {src ? <picture>{isWebp && <source srcSet={src} type="image/webp" />}<img src={isWebp ? src.replace('.webp', '.jpg') : src} alt={alt} width="379" height="752" loading={priority ? 'eager' : 'lazy'} decoding="async" /></picture> : children}
       </div>
       <span className="ng-phone-island" aria-hidden="true"><span /></span>
       <span className="ng-phone-home-indicator" aria-hidden="true" />

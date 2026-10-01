@@ -38,6 +38,7 @@
   height: 100%;
   object-fit: contain;
 }
+.ng-phone-iphone .ng-phone-content:has(img[src$="financas.jpeg"]) { inset: 0; }
 .ng-phone-island {
   position: absolute;
   z-index: 3;

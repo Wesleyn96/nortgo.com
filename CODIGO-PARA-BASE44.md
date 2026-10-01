@@ -113,7 +113,7 @@ import { Eyebrow, Reveal, Phone, SectionNumber } from './LandingPrimitives';
 export default function LandingFinances() {
   return <section id="financas" className="ng-feature ng-light ng-finances"><div className="ng-container">
     <Reveal className="ng-finance-heading"><div><Eyebrow light>FINANÇAS</Eyebrow><h2 className="ng-heading mt-6">Seu dinheiro.<br /><span className="ng-accent-text">Sem ponto de interrogação.</span></h2></div><SectionNumber>04 / 06</SectionNumber></Reveal>
-    <div className="ng-finance-composition"><Reveal className="ng-finance-side"><p className="ng-body">Saiba quanto entrou, quanto saiu e o que ainda falta pagar. Controle simples para as decisões do dia a dia.</p><div className="ng-finance-amount"><ArrowDownLeft size={19}/><span><small>A RECEBER</small><b>Projeto entregue</b><p>R$ 800,00 · amanhã</p></span></div></Reveal><Reveal className="ng-finance-phone"><Phone src="/landing/img/financas.webp" alt="Tela real de Finanças do NortGo com contas pendentes, pagas e projeção dos próximos meses."/></Reveal><Reveal className="ng-finance-side ng-finance-side-right"><div className="ng-finance-amount"><ArrowUpRight size={19}/><span><small>A PAGAR</small><b>Internet</b><p>R$ 150,00</p></span></div><div className="ng-finance-terms"><Wallet size={22}/><p>Receitas e gastos.<br />Contas e categorias.<br />Dívidas acompanhadas.</p></div></Reveal></div>
+    <div className="ng-finance-composition"><Reveal className="ng-finance-side"><p className="ng-body">Saiba quanto entrou, quanto saiu e o que ainda falta pagar. Controle simples para as decisões do dia a dia.</p><div className="ng-finance-amount"><ArrowDownLeft size={19}/><span><small>A RECEBER</small><b>Projeto entregue</b><p>R$ 800,00 · amanhã</p></span></div></Reveal><Reveal className="ng-finance-phone"><Phone src="/landing/img/financas.jpeg" alt="Tela real de Finanças do NortGo com contas pendentes, pagas e projeção dos próximos meses."/></Reveal><Reveal className="ng-finance-side ng-finance-side-right"><div className="ng-finance-amount"><ArrowUpRight size={19}/><span><small>A PAGAR</small><b>Internet</b><p>R$ 150,00</p></span></div><div className="ng-finance-terms"><Wallet size={22}/><p>Receitas e gastos.<br />Contas e categorias.<br />Dívidas acompanhadas.</p></div></Reveal></div>
   </div></section>;
 }
 ```
@@ -199,8 +199,10 @@ const chapters = [
 
 function ChapterScreen({ chapter, progress, active }) {
   const opacity = useTransform(progress, [chapter.start, chapter.start + .04], [0, 1]);
-  return <motion.div className="ng-cinema-screen-layer" style={{ opacity: chapter.start === 0 ? 1 : opacity }} aria-hidden={!active}>
-    <picture><source srcSet={`/landing/img/${chapter.image}.webp`} type="image/webp" /><img src={`/landing/img/${chapter.image}.jpg`} alt={chapter.alt} width="379" height="752" decoding="async" /></picture>
+  const isFinance = chapter.image === 'financas';
+  const extension = isFinance ? 'jpeg' : 'webp';
+  return <motion.div className={`ng-cinema-screen-layer ${isFinance ? 'ng-cinema-screen-finance' : ''}`} style={{ opacity: chapter.start === 0 ? 1 : opacity }} aria-hidden={!active}>
+    <picture>{!isFinance && <source srcSet={`/landing/img/${chapter.image}.${extension}`} type="image/webp" />}<img src={`/landing/img/${chapter.image}.${isFinance ? extension : 'jpg'}`} alt={chapter.alt} width="379" height="752" decoding="async" /></picture>
   </motion.div>;
 }
 
@@ -368,7 +370,7 @@ export const modules = [
   { label: 'Agenda', id: 'agenda', icon: CalendarDays, sideLeft: 'Seu dia, à vista.', textLeft: 'Reúna consultas, encontros e compromissos em uma agenda fácil de acompanhar.', sideRight: 'Cada horário conta.', textRight: 'Veja o que vem a seguir e use lembretes para se preparar com tranquilidade.', src: '/landing/img/agenda.webp' },
   { label: 'Tarefas', id: 'tarefas', icon: CheckCheck, sideLeft: 'Dê lugar às pendências.', textLeft: 'Anote o que precisa fazer e defina prazos para cada tarefa.', sideRight: 'Um passo de cada vez.', textRight: 'Acompanhe o que falta e marque suas tarefas como concluídas ao longo do dia.', src: '/landing/img/tarefas.webp' },
   { label: 'Rotinas', id: 'rotinas', icon: Repeat2, sideLeft: 'Hábitos que cabem na vida.', textLeft: 'Organize o que se repete na sua rotina, do cuidado diário aos planos da semana.', sideRight: 'Enxergue sua constância.', textRight: 'Registre cada prática e acompanhe seu progresso. Se precisar, recomece no seu ritmo.', src: '/landing/img/rotinas-original.webp' },
-  { label: 'Finanças', id: 'financas', icon: Wallet, sideLeft: 'Saiba para onde vai.', textLeft: 'Registre receitas e gastos por categoria para entender melhor seu dia a dia financeiro.', sideRight: 'Contas sob controle.', textRight: 'Acompanhe o que tem a pagar e a receber, com os vencimentos no mesmo lugar.', src: '/landing/img/financas.webp' },
+  { label: 'Finanças', id: 'financas', icon: Wallet, sideLeft: 'Saiba para onde vai.', textLeft: 'Registre receitas e gastos por categoria para entender melhor seu dia a dia financeiro.', sideRight: 'Contas sob controle.', textRight: 'Acompanhe o que tem a pagar e a receber, com os vencimentos no mesmo lugar.', src: '/landing/img/financas.jpeg' },
   { label: 'Saúde', id: 'saude', icon: Heart, sideLeft: 'Reserve espaço para você.', textLeft: 'Registre água, sono, alimentação e atividade física junto com sua organização diária.', sideRight: 'Perceba seus hábitos.', textRight: 'Acompanhe seus registros ao longo dos dias e dê atenção aos pequenos cuidados.', src: '/landing/img/saude.webp' },
   { label: 'Notas', id: 'notas', icon: StickyNote, sideLeft: 'Uma ideia merece espaço.', textLeft: 'Guarde ideias e informações importantes para encontrar tudo quando precisar.', sideRight: 'Da anotação à ação.', textRight: 'Quando fizer sentido, transforme uma nota em tarefa ou compromisso e dê o próximo passo.', src: '/landing/img/notas-original.webp' },
 ];
@@ -415,7 +417,7 @@ export default function LandingOverview({ active, onSelect }) {
       <div className="ng-theater-stage">
         <div className="ng-theater-floor" aria-hidden="true"/>
         <motion.div className="ng-theater-wing ng-theater-wing-left" style={cinematic?{x:spreadLeft,rotate:turnLeft}: {}} aria-hidden="true"><Phone src="/landing/img/home.webp" alt=""/></motion.div>
-        <motion.div className="ng-theater-wing ng-theater-wing-right" style={cinematic?{x:spreadRight,rotate:turnRight}: {}} aria-hidden="true"><Phone src="/landing/img/financas.webp" alt=""/></motion.div>
+        <motion.div className="ng-theater-wing ng-theater-wing-right" style={cinematic?{x:spreadRight,rotate:turnRight}: {}} aria-hidden="true"><Phone src="/landing/img/financas.jpeg" alt=""/></motion.div>
         <motion.div className="ng-theater-main" style={cinematic?{scale:depth}:{scale:1}}><div id="ng-module-panel" role="tabpanel" aria-labelledby={`ng-tab-${selected.id}`} tabIndex={0}>
           <motion.div key={selected.id} initial={reduced?false:{opacity:0,y:'0.75rem'}} animate={{opacity:1,y:'0rem'}} transition={{duration:reduced?0:.35,ease:landingEase}}><Phone src={selected.src} alt={`Tela real de ${selected.label} do NortGo.`} /></motion.div>
         </div></motion.div>
@@ -461,10 +463,11 @@ export function Eyebrow({ children, light = false }) {
 export const PHONE_ASPECT_RATIO = 78 / 163.4;
 
 export function Phone({ src, alt, children, className = '', priority = false }) {
+  const isWebp = src?.endsWith('.webp');
   return <div className={`ng-phone ng-phone-iphone ${className}`} data-device="iphone-17-pro-max">
     <div className="ng-phone-screen">
       <div className="ng-phone-content">
-        {src ? <picture><source srcSet={src} type="image/webp" /><img src={src.replace('.webp', '.jpg')} alt={alt} width="379" height="752" loading={priority ? 'eager' : 'lazy'} decoding="async" /></picture> : children}
+        {src ? <picture>{isWebp && <source srcSet={src} type="image/webp" />}<img src={isWebp ? src.replace('.webp', '.jpg') : src} alt={alt} width="379" height="752" loading={priority ? 'eager' : 'lazy'} decoding="async" /></picture> : children}
       </div>
       <span className="ng-phone-island" aria-hidden="true"><span /></span>
       <span className="ng-phone-home-indicator" aria-hidden="true" />
@@ -608,6 +611,7 @@ export function NotesScreen() {
 .ng-cinema-screen-stack { position: relative; width: 100%; height: 100%; }
 .ng-cinema-screen-layer { position: absolute; inset: 0; background: #000; }
 .ng-cinema-screen-layer picture,.ng-cinema-screen-layer img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.ng-cinema-screen-finance img { object-fit: contain; }
 .ng-cinema-chapter-words > span { font-size: clamp(2.75rem,calc(5.3 * var(--ng-vw)),4.75rem); width: calc(50% - 14.375rem); max-width: 23.125rem; line-height: 1.08; }
 .ng-cinema-chapter-words .ng-cinema-word-one { text-align: right; }
 .ng-cinema-device::after { content: ''; position: absolute; inset: -0.125rem; border-radius: 3rem; pointer-events: none; background: linear-gradient(125deg,#ffefd920,transparent 30%); }
@@ -1306,6 +1310,7 @@ export default {
   height: 100%;
   object-fit: contain;
 }
+.ng-phone-iphone .ng-phone-content:has(img[src$="financas.jpeg"]) { inset: 0; }
 .ng-phone-island {
   position: absolute;
   z-index: 3;

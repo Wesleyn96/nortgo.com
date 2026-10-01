@@ -29,6 +29,7 @@
 .ng-cinema-screen-stack { position: relative; width: 100%; height: 100%; }
 .ng-cinema-screen-layer { position: absolute; inset: 0; background: #000; }
 .ng-cinema-screen-layer picture,.ng-cinema-screen-layer img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.ng-cinema-screen-finance img { object-fit: contain; }
 .ng-cinema-chapter-words > span { font-size: clamp(2.75rem,calc(5.3 * var(--ng-vw)),4.75rem); width: calc(50% - 14.375rem); max-width: 23.125rem; line-height: 1.08; }
 .ng-cinema-chapter-words .ng-cinema-word-one { text-align: right; }
 .ng-cinema-device::after { content: ''; position: absolute; inset: -0.125rem; border-radius: 3rem; pointer-events: none; background: linear-gradient(125deg,#ffefd920,transparent 30%); }
