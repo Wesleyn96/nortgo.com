@@ -393,7 +393,9 @@ export default function LandingOverview({ active, onSelect }) {
   return <section id="recursos" ref={ref} className="ng-product-theater">
     <div className="ng-theater-grid" aria-hidden="true"/>
     <div className="ng-container relative">
-      <Reveal className="ng-theater-heading"><h2 className="ng-heading">A sua vida.<br/><span className="text-landing-copper">Toda aqui.</span></h2></Reveal>
+      {cinematic
+        ? <Reveal className="ng-theater-heading"><h2 className="ng-heading">A sua vida.<br/><span className="text-landing-copper">Toda aqui.</span></h2></Reveal>
+        : <div className="ng-theater-heading"><h2 className="ng-heading">A sua vida.<br/><span className="text-landing-copper">Toda aqui.</span></h2></div>}
       <div className="ng-module-tabs" role="tablist" aria-label="Explore os módulos do NortGo">{modules.map(({id,label,icon:Icon},index)=><button key={id} id={`ng-tab-${id}`} role="tab" aria-selected={index===active} aria-controls="ng-module-panel" tabIndex={index===active?0:-1} onClick={()=>onSelect(index)} onKeyDown={event=>selectByKeyboard(event,index)}><Icon size="1.0625rem"/><span>{label}</span></button>)}</div>
       <div className="ng-theater-stage">
         <div className="ng-theater-floor" aria-hidden="true"/>
