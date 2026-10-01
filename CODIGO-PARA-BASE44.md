@@ -779,7 +779,7 @@ export function NotesScreen() {
   .ng-cinema-static .ng-cinema-scene { height: auto; min-height: 38.75rem; }
   .ng-cinema-static .ng-cinema-device-position, .ng-cinema-static .ng-cinema-satellites { display: none; }
   .ng-cinema-static .ng-cinema-halo { display: none; }
-  .ng-cinema-copy { top: 8.875rem; left: 1.0625rem; right: 1.0625rem; } .ng-cinema-copy h1 { font-size: var(--ng-title-size); line-height: 1.04; margin-top: 1.4375rem; } .ng-cinema-copy .ng-eyebrow { font-size: 0.4375rem; letter-spacing: .18em; } .ng-cinema-copy p { font-size: 0.8125rem; margin-top: 1.3125rem; } .ng-cinema-actions { gap: 0.5625rem; margin-top: 1.5625rem; } .ng-cinema-actions .ng-button { padding: 0.8125rem 0.875rem; font-size: 0.6875rem; }
+  .ng-cinema-copy { top: 8.875rem; left: 1.0625rem; right: 1.0625rem; } .ng-cinema-copy h1 { font-size: var(--ng-title-size); line-height: 1.04; margin-top: 2rem; } .ng-cinema-copy .ng-eyebrow { font-size: 0.4375rem; letter-spacing: .18em; } .ng-cinema-copy p { font-size: 0.8125rem; margin-top: 2.25rem; } .ng-cinema-actions { gap: 0.5625rem; margin-top: 2.5rem; } .ng-cinema-actions .ng-button { padding: 0.8125rem 0.875rem; font-size: 0.6875rem; }
   .ng-cinema-static .ng-cinema-device-position { top: 30.625rem; left: calc(50% - 7.6875rem); width: 15.375rem; } .ng-cinema-device .ng-phone { width: 15.375rem; border-radius: 2.1875rem; padding: 0.5rem; } .ng-cinema-device .ng-phone-screen { border-radius: 1.6875rem; } .ng-cinema-device::after { border-radius: 2.1875rem; }
   .ng-cinema-halo { width: 43.75rem; height: 43.75rem; left: calc(50% - 21.875rem); top: 20.625rem; filter: blur(0.5rem); } .ng-cinema-halo::after { width: 23.125rem; height: 23.125rem; top: 6.25rem; left: 10.3125rem; }
   .ng-satellite-agenda { left: 0.5rem; top: 62% !important; rotate: -9deg; padding: 0.75rem; } .ng-satellite-task { right: 0.625rem; top: 82% !important; padding: 0.75rem; } .ng-satellite small { font-size: 0.3125rem; } .ng-satellite b { font-size: 0.5rem; } .ng-satellite > span { padding: 0.375rem; border-radius: 0.5rem; } .ng-satellite > span svg { width: 1.125rem; height: 1.125rem; } .ng-satellite-wallet { display: none; }
@@ -863,13 +863,18 @@ export function NotesScreen() {
   .ng-mobile-module-icon { display: grid; place-items: center; width: 100%; max-width: 3.25rem; aspect-ratio: 1; border-radius: 30%; border: 0.0625rem solid #ffffff24; background: radial-gradient(ellipse at 50% 55%, #fa811c26, transparent 72%), linear-gradient(145deg, #30302f, #101010 65%); box-shadow: inset 0 0.125rem 0.25rem #ffffff15, inset 0 -0.125rem 0.375rem #0008; }
   .ng-mobile-module-icon svg { width: 1.5625rem; height: 1.5625rem; color: #ff9b45; filter: drop-shadow(0 0 0.375rem #ff821d50); }
   .ng-mobile-module-label { font-size: 0.6875rem; line-height: 1.2; font-weight: 400; color: #b9ada3; }
+  .ng-mobile-hero-brand { margin-bottom: 1.75rem; }
+  .ng-cinema-copy h1 { margin-top: 2rem; }
+  .ng-cinema-copy p { margin-top: 2.25rem; }
+  .ng-mobile-hero-modules { margin-top: 2.25rem; }
+  .ng-cinema-actions { margin-top: 2.5rem; }
 }
 @media (max-width: 767px) {
   .nortgo-landing main > section { min-height: 100svh; box-sizing: border-box; }
   .ng-cinema-hero.ng-cinema-static,
   .ng-cinema-static .ng-cinema-scene { min-height: 100dvh; }
-  .ng-cinema-copy p { margin-top: 1.8125rem; }
-  .ng-cinema-actions { margin-top: 2.0625rem; }
+  .ng-cinema-copy p { margin-top: 2.25rem; }
+  .ng-cinema-actions { margin-top: 2.5rem; }
   .ng-product-theater > .ng-container { min-height: calc(100svh - 3.375rem); justify-content: center; }
   .ng-finale { min-height: 100svh; display: flex; align-items: center; }
   .ng-finale > .ng-container { width: 100%; }
