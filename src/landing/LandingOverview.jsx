@@ -1,11 +1,12 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { House, CalendarDays, CheckCheck, Repeat2, Wallet, Heart, StickyNote } from 'lucide-react';
+import { House, LayoutDashboard, CalendarDays, CheckCheck, Repeat2, Wallet, Heart, StickyNote } from 'lucide-react';
 import { Reveal, Phone } from './LandingPrimitives';
 import { useDesktopScene, useLandingMotion, landingEase } from './motion';
 
 export const modules = [
   { label: 'Home', id: 'home', icon: House, sideLeft: 'O que importa hoje.', textLeft: 'Veja compromissos, tarefas e contas que precisam de atenção em uma visão do seu dia.', sideRight: 'Seu dia começa aqui.', textRight: 'Encontre suas próximas ações e acesse as áreas da sua vida no mesmo lugar.', src: '/landing/img/home.webp' },
+  { label: 'Centro de ação', id: 'centro-acao', icon: LayoutDashboard, sideLeft: 'O que pede atenção.', textLeft: 'Veja em uma só tela o que ficou para trás, o que vence hoje e o que vem a seguir.', sideRight: 'Seu próximo passo.', textRight: 'Priorize tarefas, contas e compromissos sem precisar procurar em vários lugares.', src: '/landing/img/home.webp' },
   { label: 'Agenda', id: 'agenda', icon: CalendarDays, sideLeft: 'Seu dia, à vista.', textLeft: 'Reúna consultas, encontros e compromissos em uma agenda fácil de acompanhar.', sideRight: 'Cada horário conta.', textRight: 'Veja o que vem a seguir e use lembretes para se preparar com tranquilidade.', src: '/landing/img/agenda.webp' },
   { label: 'Tarefas', id: 'tarefas', icon: CheckCheck, sideLeft: 'Dê lugar às pendências.', textLeft: 'Anote o que precisa fazer e defina prazos para cada tarefa.', sideRight: 'Um passo de cada vez.', textRight: 'Acompanhe o que falta e marque suas tarefas como concluídas ao longo do dia.', src: '/landing/img/tarefas.webp' },
   { label: 'Rotinas', id: 'rotinas', icon: Repeat2, sideLeft: 'Hábitos que cabem na vida.', textLeft: 'Organize o que se repete na sua rotina, do cuidado diário aos planos da semana.', sideRight: 'Enxergue sua constância.', textRight: 'Registre cada prática e acompanhe seu progresso. Se precisar, recomece no seu ritmo.', src: '/landing/img/rotinas-original.webp' },
@@ -15,6 +16,7 @@ export const modules = [
 ];
 const mobileDescriptions = {
   home: 'Veja o que precisa de atenção hoje e encontre suas próximas ações.',
+  'centro-acao': 'Veja o que ficou para trás, o que vence hoje e o que vem a seguir em uma só visão.',
   agenda: 'Reúna compromissos, horários e lembretes para acompanhar seu dia.',
   tarefas: 'Organize pendências, defina prazos e acompanhe suas tarefas até concluir.',
   rotinas: 'Registre seus hábitos e acompanhe sua constância, no seu ritmo.',
