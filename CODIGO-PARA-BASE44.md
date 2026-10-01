@@ -175,9 +175,18 @@ export default function LandingHealth() {
 ```jsx
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
-import { CalendarDays, CheckCheck, Wallet } from 'lucide-react';
+import { CalendarDays, CheckCheck, Wallet, Repeat2, StickyNote, Heart } from 'lucide-react';
 import { Action, Phone, PHONE_ASPECT_RATIO } from './LandingPrimitives';
 import { useDesktopScene, useLandingMotion, useLandingViewport, landingEase } from './motion';
+
+const heroModules = [
+  { label: 'Rotinas', icon: Repeat2 },
+  { label: 'Agenda', icon: CalendarDays },
+  { label: 'Tarefas', icon: CheckCheck },
+  { label: 'Notas', icon: StickyNote },
+  { label: 'Finanças', icon: Wallet },
+  { label: 'Saúde', icon: Heart },
+];
 
 const chapters = [
   { image: 'home', start: 0, left: 'Veja', right: 'Organize', caption: 'Siga mais leve.', alt: 'Tela real do NortGo com a visão de hoje, próximas ações e os seis módulos.' },
@@ -244,6 +253,12 @@ export default function LandingHero() {
           <div className="ng-mobile-hero-brand" aria-hidden="true"><img src="/landing/img/logo-nortgo.png" alt="" width="82" height="82" /><span><span className="ng-brand-nort">Nort</span><span className="ng-brand-go">Go</span></span></div>
           <h1 id="hero-heading">Foco no que importa.<br /><span>Vida organizada.</span></h1>
           <p>Agenda, tarefas, contas e hábitos.<br className="md:hidden" /> Sua vida em um só lugar.</p>
+          <ul className="ng-mobile-hero-modules" aria-label="Áreas do NortGo">
+            {heroModules.map(({ label, icon: Icon }) => <li key={label}>
+              <span className="ng-mobile-module-icon"><Icon aria-hidden="true" strokeWidth={1.5} /></span>
+              <span className="ng-mobile-module-label">{label}</span>
+            </li>)}
+          </ul>
           <div className="ng-cinema-actions" inert={cinematic && pastIntro ? '' : undefined} aria-hidden={cinematic && pastIntro ? true : undefined}><Action /></div>
         </motion.div>
       </motion.div>
@@ -583,6 +598,7 @@ export function NotesScreen() {
 .ng-cinema-copy h1 { margin: 1.4375rem auto 0; font-size: var(--ng-title-size); line-height: .99; letter-spacing: -.065em; font-weight: 500; }
 .ng-cinema-copy h1 span { color: #edb189; }
 .ng-mobile-hero-brand { display: none; }
+.ng-mobile-hero-modules { display: none; }
 .ng-cinema-copy p { color: #b6aaa0; font-size: 0.875rem; margin-top: 1.25rem; }
 .ng-cinema-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin-top: 1.5625rem; }
 .ng-cinema-device-position { position: absolute; top: max(32.1875rem,52svh); left: calc(50% - 10.9375rem); width: 21.875rem; perspective: 81.25rem; z-index: 3; }
@@ -841,6 +857,13 @@ export function NotesScreen() {
   .ng-module-tabs button svg { width: 0.8125rem; height: 0.8125rem; flex-shrink: 0; }
 }
 /* Main landing sections fill at least the visible mobile viewport height. */
+@media (max-width: 767px) {
+  .ng-mobile-hero-modules { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0.625rem; width: min(100%, 24rem); margin: 1.875rem auto 0; padding: 0; list-style: none; }
+  .ng-mobile-hero-modules li { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; min-width: 0; }
+  .ng-mobile-module-icon { display: grid; place-items: center; width: 100%; max-width: 3.25rem; aspect-ratio: 1; border-radius: 30%; border: 0.0625rem solid #ffffff24; background: radial-gradient(ellipse at 50% 55%, #fa811c26, transparent 72%), linear-gradient(145deg, #30302f, #101010 65%); box-shadow: inset 0 0.125rem 0.25rem #ffffff15, inset 0 -0.125rem 0.375rem #0008; }
+  .ng-mobile-module-icon svg { width: 1.5625rem; height: 1.5625rem; color: #ff9b45; filter: drop-shadow(0 0 0.375rem #ff821d50); }
+  .ng-mobile-module-label { font-size: 0.6875rem; line-height: 1.2; font-weight: 400; color: #b9ada3; }
+}
 @media (max-width: 767px) {
   .nortgo-landing main > section { min-height: 100svh; box-sizing: border-box; }
   .ng-cinema-hero.ng-cinema-static,
