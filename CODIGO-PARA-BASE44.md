@@ -841,7 +841,7 @@ export function NotesScreen() {
 
 /* Compact mobile product explorer: explanation, device, then module controls. */
 @media (max-width: 767px) {
-  .ng-product-theater { padding: 1.875rem 0 1.5rem; }
+  .ng-product-theater { padding: 0.75rem 0 1.5rem; }
   .ng-product-theater > .ng-container { display: flex; flex-direction: column; }
   .ng-theater-heading { order: 0; }
   .ng-theater-heading .ng-heading { margin-top: 0; }
@@ -881,7 +881,7 @@ export function NotesScreen() {
   .ng-cinema-static .ng-cinema-scene { min-height: 100svh; }
   .ng-cinema-copy p { margin-top: 2.25rem; }
   .ng-cinema-actions { margin-top: 2.5rem; }
-  .ng-product-theater > .ng-container { min-height: calc(100svh - 3.375rem); justify-content: center; }
+  .ng-product-theater > .ng-container { min-height: calc(100svh - 2.25rem); justify-content: flex-start; }
   .ng-finale { min-height: 100svh; display: flex; align-items: center; }
   .ng-finale > .ng-container { width: 100%; }
 }
